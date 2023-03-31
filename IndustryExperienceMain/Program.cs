@@ -1,4 +1,10 @@
+using IndustryExperienceMain.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<IndustryExperienceSqldatabaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("azureConString")
+        ?? throw new InvalidOperationException("Connection String 'azureConString' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
