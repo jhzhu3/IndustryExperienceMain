@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "PreferenceCheck";
+}
+
+<div class="text-center">
+    <h1>Check What Volunteer Opportunity Best Suits You!</h1>
+    <p>Select a location and Job type that best suit your personality</p>
+</div>
+
+@*<div>
+    <form>
+        <p>Location:</p>
+        <p>
+            <input type="text" id="jobLocation" name="jobLocationString" value="@ViewData["CurrentFilter"]"/>
+            <input type ="submit" value="Search" class="button" />
+        </p>
+        <p>Job Type:</p>
+        <p>
+            <input type="text" id="jobType" name="jobTypeString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="button" />
+        </p>
+    </form>
+</div>
+
+<div>
+    <form>
+        <p>Location:
+            <input type="text" id="jobLocation" name="jobLocationString" value="@ViewData["FirstFilter"]" />
+            Job Type:
+            <input type="text" id="jobType" name="jobTypeString" value="@ViewData["SecondFilter"]" />
+            <input type="submit" value="Search" class="button" />
+        </p>
+    </form>
+</div>*@
+
+<form method="get" action="@Url.Action("PreferenceDisplay", "Jobs")">
+    <div>
+        <label for="workplace">Location:</label>
+        <input type="text" name="workplace" id="workplace" />
+    </div>
+    <div>
+        <label for="typeOfWork">Job Type:</label>
+        <input type="text" name="typeOfWork" id="typeOfWork" />
+    </div>
+    <button type="submit">Search</button>
+</form>
+
+
+

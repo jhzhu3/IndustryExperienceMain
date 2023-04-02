@@ -1,0 +1,52 @@
+﻿@model IEnumerable<IndustryExperienceMain.Models.Job>
+
+@{
+    ViewData["Title"] = "PreferenceDisplay";
+}
+
+<h1>PreferenceDisplay</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfWork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Commitment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeSection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Workplace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agency)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOfWork)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Commitment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeSection)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Workplace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Agency.AgencyId)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -3,6 +3,21 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Youth Against Poverty</h1>
+    <p>Learn what you can do to help reduce poverty in our community.</p>
+</div>
+
+<div class="text-center">
+    <button type="button" class="button" onclick="location.href='@Url.Action("PreferenceCheck", "Jobs")'">Volunteer Search</button><br />
+    <button type="button" class="button" onclick="location.href='@Url.Action("Index", "Jobs")'">Aptitude Quiz</button><br />
+    <button type="button" class="button" onclick="location.href='@Url.Action("Index", "Jobs")'">Poverty Articles</button><br />
+    <style>
+        .button {
+            background-color: #C2EDCE;
+            padding: 10px 16px;
+            border-radius: 25px;
+            width: 25%;
+            margin: 5px;
+        }
+    </style>
 </div>

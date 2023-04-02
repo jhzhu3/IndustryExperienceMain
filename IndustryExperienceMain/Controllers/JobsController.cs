@@ -25,6 +25,41 @@ namespace IndustryExperienceMain.Controllers
             return View(await industryExperienceSqldatabaseContext.ToListAsync());
         }
 
+        public IActionResult PreferenceCheck()
+        {
+            return View();
+        }
+
+        public IActionResult PreferenceDisplay(string workplace, string typeOfWork)
+        {
+            var query = _context.Jobs.AsQueryable();
+
+            if (!string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.Workplace.Contains(workplace) && j.TypeOfWork.Contains(typeOfWork));
+            }
+
+
+            var results = query.ToList();
+
+            return View(results);
+        }
+
+/*        public async Task<IActionResult> PreferenceDisplay(string jobLocationString, string jobTypeString) 
+        {
+            var dbContext = _context.Jobs.Include(j => j.Agency);
+
+            ViewData["FirstFilter"] = jobLocationString;
+            ViewData["SecondFilter"] = jobTypeString;
+
+            List<Job> jobList = dbContext.ToList();
+            if (jobList.Any(j => j.Workplace.Contains(jobLocationString)) || jobList.Any(j => j.TypeOfWork.Contains(jobTypeString)))
+            {
+                List<Job> found = (List<Job>)jobList.Where(j => j.Workplace.Contains(jobLocationString));
+                return View(found);
+            }
+        }*/
+
         // GET: Jobs/Details/5
         public async Task<IActionResult> Details(decimal? id)
         {
