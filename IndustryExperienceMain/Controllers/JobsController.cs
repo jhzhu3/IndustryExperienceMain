@@ -37,12 +37,17 @@ namespace IndustryExperienceMain.Controllers
             if (!string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
             {
                 query = query.Where(j => j.Workplace.Contains(workplace) && j.TypeOfWork.Contains(typeOfWork));
+                var results = query.ToList();
+                return View(results);
+            }
+            else
+            {
+                List<Job> empty = new List<Job>();
+                return View(empty);
             }
 
 
-            var results = query.ToList();
-
-            return View(results);
+            
         }
 
 /*        public async Task<IActionResult> PreferenceDisplay(string jobLocationString, string jobTypeString) 

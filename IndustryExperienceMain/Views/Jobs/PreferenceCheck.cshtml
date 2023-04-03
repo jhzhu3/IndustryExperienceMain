@@ -35,15 +35,13 @@
 </div>*@
 
 <form method="get" action="@Url.Action("PreferenceDisplay", "Jobs")">
-    <div>
+    <div class="text-center">
         <label for="workplace">Location:</label>
         <input type="text" name="workplace" id="workplace" />
-    </div>
-    <div>
         <label for="typeOfWork">Job Type:</label>
         <input type="text" name="typeOfWork" id="typeOfWork" />
+        <button type="submit">Search</button>
     </div>
-    <button type="submit">Search</button>
 </form>
 
 

@@ -6,7 +6,34 @@
 
 <h1>PreferenceDisplay</h1>
 
-<table class="table">
+@{
+    var jobList = Model.ToList();
+    if (!jobList.Any())
+    {
+        <div class="align-content-center">
+            <h1 class="text-center">OOPS!</h1>
+            <p>
+                <center>Sorry no matches found!</center>
+                <center>The opportunity you are looking for is currently not in our database,</center>
+                <center>but this site will be updated periodically to include more items.</center>
+                <center>Stay tuned for more updates!</center>
+            </p>
+        </div>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <p>Type of Work: @Html.DisplayFor(modelItem => item.TypeOfWork)</p>
+            <p>Commitment: @Html.DisplayFor(modelItem => item.Commitment)</p>
+            <p>Time Section: @Html.DisplayFor(modelItem => item.TimeSection)</p>
+            <p>Location: @Html.DisplayFor(modelItem => item.Workplace)</p>
+            <p>Agency: @Html.DisplayFor(modelItem => item.AgencyId)</p>
+        }
+    }
+}
+
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -44,9 +71,9 @@
                     @Html.DisplayFor(modelItem => item.Workplace)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Agency.AgencyId)
+                    @Html.DisplayFor(modelItem => item.AgencyId)
                 </td>
             </tr>
         }
     </tbody>
-</table>
+</table>*@
