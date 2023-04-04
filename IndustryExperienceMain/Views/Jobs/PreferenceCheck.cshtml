@@ -37,12 +37,29 @@
 <form method="get" action="@Url.Action("PreferenceDisplay", "Jobs")">
     <div class="text-center">
         <label for="workplace">Location:</label>
-        <input type="text" name="workplace" id="workplace" />
+        <input type="text" id="locationName" name="workplace" id="workplace" />
         <label for="typeOfWork">Job Type:</label>
-        <input type="text" name="typeOfWork" id="typeOfWork" />
+        <input type="text" id="typeName" name="typeOfWork" id="typeOfWork" />
         <button type="submit">Search</button>
     </div>
 </form>
 
+@section Scripts{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#locationName").autocomplete({
+                source: '/Jobs/SearchLocation'
+            });
+        });
+        $(function () {
+            $("#typeName").autocomplete({
+                source: '/Jobs/SearchType'
+            });
+        });
+    </script>
+}
 
 

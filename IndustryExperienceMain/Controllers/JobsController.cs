@@ -39,31 +39,55 @@ namespace IndustryExperienceMain.Controllers
                 query = query.Where(j => j.Workplace.Contains(workplace) && j.TypeOfWork.Contains(typeOfWork));
                 var results = query.ToList();
                 return View(results);
+            } else if(!string.IsNullOrEmpty(workplace) && string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.Workplace.Contains(workplace));
+                var results = query.ToList();
+                return View(results);
+            }
+            else if (string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.TypeOfWork.Contains(typeOfWork));
+                var results = query.ToList();
+                return View(results);
             }
             else
             {
                 List<Job> empty = new List<Job>();
                 return View(empty);
             }
-
-
-            
         }
 
-/*        public async Task<IActionResult> PreferenceDisplay(string jobLocationString, string jobTypeString) 
+        public async Task<IActionResult> SearchLocation() 
         {
-            var dbContext = _context.Jobs.Include(j => j.Agency);
+            string prefix = HttpContext.Request.Query["term"].ToString();
+            var jobs = _context.Jobs.Where(j => j.Workplace.Contains(prefix))
+                .Select(j => j.Workplace).ToList();
+            return Ok(jobs);
+        }
 
-            ViewData["FirstFilter"] = jobLocationString;
-            ViewData["SecondFilter"] = jobTypeString;
+        public async Task<IActionResult> SearchType()
+        {
+            string prefix = HttpContext.Request.Query["term"].ToString();
+            var jobs = _context.Jobs.Where(j => j.TypeOfWork.Contains(prefix))
+                .Select(j => j.TypeOfWork).ToList();
+            return Ok(jobs);
+        }
 
-            List<Job> jobList = dbContext.ToList();
-            if (jobList.Any(j => j.Workplace.Contains(jobLocationString)) || jobList.Any(j => j.TypeOfWork.Contains(jobTypeString)))
-            {
-                List<Job> found = (List<Job>)jobList.Where(j => j.Workplace.Contains(jobLocationString));
-                return View(found);
-            }
-        }*/
+        /*        public async Task<IActionResult> PreferenceDisplay(string jobLocationString, string jobTypeString) 
+                {
+                    var dbContext = _context.Jobs.Include(j => j.Agency);
+
+                    ViewData["FirstFilter"] = jobLocationString;
+                    ViewData["SecondFilter"] = jobTypeString;
+
+                    List<Job> jobList = dbContext.ToList();
+                    if (jobList.Any(j => j.Workplace.Contains(jobLocationString)) || jobList.Any(j => j.TypeOfWork.Contains(jobTypeString)))
+                    {
+                        List<Job> found = (List<Job>)jobList.Where(j => j.Workplace.Contains(jobLocationString));
+                        return View(found);
+                    }
+                }*/
 
         // GET: Jobs/Details/5
         public async Task<IActionResult> Details(decimal? id)
