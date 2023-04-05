@@ -24,4 +24,8 @@
     <Folder Include="SQLCommands\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Images\HandsIndex.png" />
+  </ItemGroup>
+
 </Project>

@@ -3,11 +3,29 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to Youth Against Poverty</h1>
-    <p>Learn what you can do to help reduce poverty in our community.</p>
+    <h1 class="display-4">Youth Against Poverty</h1>
 </div>
 
-<div class="text-center">
+<div class="content">
+    <p class="text-center">Our website offers resources and opportunities for youth to get started on their journey towards fighting poverty.</p>
+    <img src="@Url.Content("~/Images/HandsIndex.png")" class="center"></img>
+</div>
+
+<style>
+    .content{
+        max-width: 500px;
+        margin:auto;
+    }
+    .center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+</style>
+
+<div class="text-center" style="margin-top:50px;" id="option">
+    <p>Feeling of a sense of purpose is just a few clicks away!</p>
     <button type="button" class="button" onclick="location.href='@Url.Action("PreferenceCheck", "Jobs")'">Volunteer Search</button><br />
     <button type="button" class="button" onclick="location.href='@Url.Action("Index", "Jobs")'">Aptitude Quiz</button><br />
     <button type="button" class="button" onclick="location.href='@Url.Action("Index", "Jobs")'">Poverty Articles</button><br />

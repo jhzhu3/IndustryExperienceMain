@@ -4,45 +4,37 @@
 }
 
 <div class="text-center">
-    <h1>Check What Volunteer Opportunity Best Suits You!</h1>
-    <p>Select a location and Job type that best suit your personality</p>
+    <h1><i>We believe that everyone has the power to make an impact.</i></h1>
+    <hr style="height:5px;">
+    <h4 style="margin-top:50px;">Connect with the organisations that share your values for rewarding volunteer opportunities</h4>
 </div>
 
-@*<div>
-    <form>
-        <p>Location:</p>
-        <p>
-            <input type="text" id="jobLocation" name="jobLocationString" value="@ViewData["CurrentFilter"]"/>
-            <input type ="submit" value="Search" class="button" />
-        </p>
-        <p>Job Type:</p>
-        <p>
-            <input type="text" id="jobType" name="jobTypeString" value="@ViewData["CurrentFilter"]" />
-            <input type="submit" value="Search" class="button" />
-        </p>
+<div id="search">
+    <form method="get" action="@Url.Action("PreferenceDisplay", "Jobs")" id="form">
+        <div class="text-center">
+            <label for="workplace">Location:</label>
+            <input type="text" id="locationName" name="workplace" placeholder="Enter suburb, town or city" size="25"/>
+            <label for="typeOfWork">Job Type:</label>
+            <input type="text" id="typeName" name="typeOfWork" placeholder="What are you interested in?" size="25" />
+            <button type="submit">Search</button>
+        </div>
     </form>
 </div>
 
-<div>
-    <form>
-        <p>Location:
-            <input type="text" id="jobLocation" name="jobLocationString" value="@ViewData["FirstFilter"]" />
-            Job Type:
-            <input type="text" id="jobType" name="jobTypeString" value="@ViewData["SecondFilter"]" />
-            <input type="submit" value="Search" class="button" />
-        </p>
-    </form>
-</div>*@
+<style>
+    #search {
+        display: block;
+        block-size: 50px;
+        background-color: mediumpurple;
+        text-align: center;
+        border: 2px solid;
+    }
+    #form {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
 
-<form method="get" action="@Url.Action("PreferenceDisplay", "Jobs")">
-    <div class="text-center">
-        <label for="workplace">Location:</label>
-        <input type="text" id="locationName" name="workplace" id="workplace" />
-        <label for="typeOfWork">Job Type:</label>
-        <input type="text" id="typeName" name="typeOfWork" id="typeOfWork" />
-        <button type="submit">Search</button>
-    </div>
-</form>
 
 @section Scripts{
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
