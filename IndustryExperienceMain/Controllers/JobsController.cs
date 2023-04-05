@@ -62,7 +62,7 @@ namespace IndustryExperienceMain.Controllers
         {
             string prefix = HttpContext.Request.Query["term"].ToString();
             var jobs = _context.Jobs.Where(j => j.Workplace.Contains(prefix))
-                .Select(j => j.Workplace).ToList();
+                .Select(j => j.Workplace).Distinct().ToList();
             return Ok(jobs);
         }
 
@@ -70,7 +70,7 @@ namespace IndustryExperienceMain.Controllers
         {
             string prefix = HttpContext.Request.Query["term"].ToString();
             var jobs = _context.Jobs.Where(j => j.TypeOfWork.Contains(prefix))
-                .Select(j => j.TypeOfWork).ToList();
+                .Select(j => j.TypeOfWork).Distinct().ToList();
             return Ok(jobs);
         }
 
