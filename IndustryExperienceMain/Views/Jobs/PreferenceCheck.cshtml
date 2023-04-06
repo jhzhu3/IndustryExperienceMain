@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "PreferenceCheck";
+}
+
+<div class="text-center">
+    <h1><i>We believe that everyone has the power to make an impact.</i></h1>
+    <hr style="height:5px;">
+    <h4 style="margin-top:50px;">Connect with the organisations that share your values for rewarding volunteer opportunities</h4>
+</div>
+
+<div id="search">
+    <form method="get" action="@Url.Action("PreferenceDisplay", "Jobs")" id="form">
+        <div class="text-center">
+            <label for="workplace">Location:</label>
+            <input type="text" id="locationName" name="workplace" placeholder="Enter suburb, town or city" size="25"/>
+            <label for="typeOfWork">Job Type:</label>
+            <input type="text" id="typeName" name="typeOfWork" placeholder="What are you interested in?" size="25" />
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    #search {
+        display: block;
+        block-size: 50px;
+        background-color: mediumpurple;
+        text-align: center;
+        border: 2px solid;
+    }
+    #form {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
+
+
+@section Scripts{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#locationName").autocomplete({
+                source: '/Jobs/SearchLocation'
+            });
+        });
+        $(function () {
+            $("#typeName").autocomplete({
+                source: '/Jobs/SearchType'
+            });
+        });
+    </script>
+}
+
+

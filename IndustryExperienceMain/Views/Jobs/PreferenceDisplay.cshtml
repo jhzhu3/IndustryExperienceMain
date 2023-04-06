@@ -1,0 +1,115 @@
+﻿@model IEnumerable<IndustryExperienceMain.Models.AgencyJobViewModel>
+
+@{
+    ViewData["Title"] = "PreferenceDisplay";
+}
+
+<h1 class="text-center">Preference Display</h1>
+
+@{
+    var jobList = Model.ToList();
+    if (!jobList.Any())
+    {
+        <div class="align-content-center">
+            <h1 class="text-center">OOPS!</h1>
+            <p>
+                <center>Sorry no matches found!</center>
+                <center>The opportunity you are looking for is currently not in our database,</center>
+                <center>but this site will be updated periodically to include more items.</center>
+                <center>Stay tuned for more updates!</center>
+            </p>
+        </div>
+    }
+    else
+    {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Volunteer Type
+                        </th>
+                        <th>
+                            Commitment
+                        </th>
+                        <th>
+                            Opportunity Time Preference
+                        </th>
+                        <th>
+                            Location
+                        </th>
+                        <th>
+                            Agency Name
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TypeOfWork)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Commitment)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TimeSection)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Workplace)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AgencyName)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+     }
+}
+
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfWork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Commitment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeSection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Workplace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agency)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOfWork)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Commitment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeSection)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Workplace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgencyId)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
