@@ -30,7 +30,7 @@ namespace IndustryExperienceMain.Controllers
             return View();
         }
 
-        public IActionResult PreferenceDisplay(string workplace, string typeOfWork)
+        /*public IActionResult PreferenceDisplay(string workplace, string typeOfWork)
         {
             var query = _context.Jobs.AsQueryable();
 
@@ -56,7 +56,7 @@ namespace IndustryExperienceMain.Controllers
                 List<Job> empty = new List<Job>();
                 return View(empty);
             }
-        }
+        }*/
 
         public async Task<IActionResult> SearchLocation() 
         {
@@ -72,6 +72,49 @@ namespace IndustryExperienceMain.Controllers
             var jobs = _context.Jobs.Where(j => j.TypeOfWork.Contains(prefix))
                 .Select(j => j.TypeOfWork).Distinct().ToList();
             return Ok(jobs);
+        }
+
+        public IActionResult PreferenceDisplay(string workplace, string typeOfWork)
+        {
+            var dataAgencyTable = _context.Agencies.ToList();
+            var dataJobTable = _context.Jobs.ToList();
+
+            var viewModelList = (from t1 in dataAgencyTable
+                                 join t2 in dataJobTable on t1.AgencyId equals t2.AgencyId
+                                 select new AgencyJobViewModel
+                                 { 
+                                    AgencyName = t1.AgencyName,
+                                    TypeOfWork = t2.TypeOfWork,
+                                    Commitment = t2.Commitment,
+                                    TimeSection = t2.TimeSection,
+                                    Workplace = t2.Workplace
+                                 }).ToList();
+
+            var query = viewModelList.AsQueryable();
+
+            if (!string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.Workplace.Contains(workplace) && j.TypeOfWork.Contains(typeOfWork));
+                var results = query.ToList();
+                return View(results);
+            }
+            else if (!string.IsNullOrEmpty(workplace) && string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.Workplace.Contains(workplace));
+                var results = query.ToList();
+                return View(results);
+            }
+            else if (string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.TypeOfWork.Contains(typeOfWork));
+                var results = query.ToList();
+                return View(results);
+            }
+            else
+            {
+                List<Job> empty = new List<Job>();
+                return View(empty);
+            }
         }
 
         /*        public async Task<IActionResult> PreferenceDisplay(string jobLocationString, string jobTypeString) 
