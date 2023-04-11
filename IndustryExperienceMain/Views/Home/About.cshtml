@@ -3,7 +3,7 @@
     ViewData["Title"] = "About";
 }
 
-<div class="text-center" id="about">
+@*<div class="text-center" id="about">
     <h1>WE ARE CURRENTLY UNDER CONSTRUCTION</h1>
     <p><strong>Please come back at a later time.</strong></p>
 </div>
@@ -19,5 +19,141 @@
         width: 500px;
         height: 200px;
     }
-</style>
+</style>*@
+<div id="one">
+    <div class="text-center" style="padding-top: 100px">
+        <h1>OUR MISSION</h1>
+        <b>Empowering young minds to fight poverty and build a better tomorrow.</b>
+    </div>
 
+    <div class="card" id="mission">
+        <h2>Donate your time.</h2>
+        <p>Volunteer to educate those in need</p>
+    </div>
+
+    <div class="card" id="mission">
+        <h2>Increase your knowledge.</h2>
+        <p>Educate yourself and make a difference</p>
+    </div>
+
+    <div class="card" id="mission">
+        <h2>Learn, Play, Impact!</h2>
+        <p>Discover who you are and how you can help</p>
+    </div>
+</div>
+
+<div id="two">
+    <div class="text-center" id="team" style="clear: both; padding-top: 100px;">
+        <h1>OUR TEAM</h1>
+        <b>Social Software Squad... Assemble...</b>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h3>Aditya Aspat</h3>
+                    <p class="title">Cyber Security Engineer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h3>Jonathan Zhu</h3>
+                    <p class="title">Software Developer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h3>Mingtian Ma</h3>
+                    <p class="title">Data Engineer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h3>Ngo Cao</h3>
+                    <p class="title">Business Analyst</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h3>Yuxian Shu</h3>
+                    <p class="title">Data Scientist</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    #mission{
+        text-align: center;
+        justify-content: center;
+        width: 25%;
+        height: 150px;
+        margin-left: 80px;
+        margin-right: auto;
+        float:left;
+        margin-bottom: 50px;
+        margin-top: 25px;
+        background-color: cadetblue;
+    }
+    #team {
+        margin-top: 100px;
+        
+    }
+    .column {
+        width: 20%;
+        float: left;
+        padding-top: 25px;
+    }
+
+    .card {
+        background-color: lightgreen;
+        border-radius: 25px;
+    }
+
+    .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 50px
+    }
+</style>
