@@ -1,12 +1,112 @@
 ﻿
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "About Us";
 }
 
-<div class="text-center" id="about">
-    <h1>WE ARE CURRENTLY UNDER CONSTRUCTION</h1>
-    <p><strong>Please come back at a later time.</strong></p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="slideshow">
+                <div>
+                    <h2>Develop Skills, Make an Impact</h2>
+                    <p>Volunteer to Support Education and Reduce Poverty in Victoria</p>
+                </div>
+                <div>
+                    <h2>Increasing Awareness</h2>
+                    <p>Our goal is to increase awareness and understanding of the impact of poverty on educational outcomes and employment opportunities in Victoria.</p>
+                </div>
+                <div>
+                    <h2>3rd Mission</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Our Team</h1>
+            <div class="card-group">
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 1">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Aditya Aspat</h3>
+                        <p>MCS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 2">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Cao Ngo Thanh Phuong</h3>
+                        <p>MBIS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 3">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Jonathan Zhu</h3>
+                        <p>MIT</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 4">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Mingtian Ma</h3>
+                        <p>MDS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 5">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Yuxian Shu</h3>
+                        <p>MDS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section scripts {
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slideshow').slick({
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: false,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+            });
+        });
+    </script>
+}
 
 <style>
     #about {
@@ -18,6 +118,66 @@
         left: 0;
         width: 500px;
         height: 200px;
+    }
+
+    .slideshow {
+        margin-top: 20px;
+        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .team-member-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 300px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 20px;
+    }
+    
+    .team-member-image {
+        width: 100%;
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .team-member-image img {
+        width: 80%;
+        height: auto;
+        border-radius: 50%;
+    }
+    
+    .team-member-info {
+        width: 100%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .team-member-info h3 {
+        margin: 8px 0;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .team-member-info p {
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+    
+    .team-member-info img {
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
     }
 </style>
 
