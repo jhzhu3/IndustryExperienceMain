@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Infographics";
+}
+
+<h1 class="text-center" style="padding-bottom: 20px">Infographics</h1>
+
+<!-- refer to local js file -->
+<script src=@Url.Content("~/package/dist/echarts.js")></script>
+
+<h2>Educational Level VS Income Bracket</h2>
+<div id="main" style="width: 1000px;height:600px;"></div>
+
+<script type="text/javascript">
+    // initialize the dom of echart
+    var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            right: 'auto',
+            data: ['Bachelor', 'Certificate I-III', 'Apprenticeship & Traineeship', 'Certificate IV or higher', 'Employed']
+        },
+        grid: {
+            left: '3%',
+            right: '20%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            name: 'NO. of Students',
+            type: 'value'
+        },
+        yAxis: {
+            name: 'Income Bracket',
+            type: 'category',
+            data: ['Highest', 'Upper-middle', 'Lower-middle', 'Lowest']
+        },
+        textStyle: {
+            fontSize: 14
+        },
+        series: [
+            {
+                name: 'Bachelor',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                data: [7382, 4259, 2998, 2836]
+            },
+            {
+                name: 'Certificate I-III',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [217, 316, 304, 323]
+            },
+            {
+                name: 'Apprenticeship & Traineeship',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [515, 621, 569, 550]
+            },
+            {
+                name: 'Certificate IV or higher',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [1094, 1097, 947, 867]
+            },
+            {
+                name: 'Employed',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [1605, 1266, 1290, 1217]
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+
+<div id="p1">
+    <p>The graph analysis shows a clear positive correlation between educational attainment and income levels. 
+        The data suggests that the higher the level of education, the higher the income an individual is likely to make. 
+        The graph demonstrates that those with tertiary degrees, such as a Bachelors, 
+        have significantly higher median incomes than those with associate degrees or trade degrees. 
+        This reinforces the importance of investing in higher education as a means of improving one's future income potential. 
+        The bar chart highlights the significance of education in providing individuals with access to better-paying jobs and higher socioeconomic status. 
+        Therefore, the bar chart underscores the importance of pursuing educational opportunities, 
+        particularly for those seeking to advance their careers and increase their earning potential.</p>
+</div>
+
+<style>
+    #main {
+        align-content: center;
+        text-align: center;
+    }
+
+    #p1 {
+        font-size: 20px;
+        float: left;
+    }
+</style>

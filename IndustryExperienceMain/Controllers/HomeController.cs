@@ -38,5 +38,10 @@ namespace IndustryExperienceMain.Controllers
         {
             return View();
         }
+
+        public IActionResult Infographics()
+        { 
+            return View();
+        }
     }
 }

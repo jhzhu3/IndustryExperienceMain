@@ -2,109 +2,100 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1>Youth Against Poverty</h1>
-</div>
-
 <style>
     h1{
         font-size:80px;
     }
 </style>
 
-<div class="content">
+<div class="text-center" style="padding-bottom:20px;">
+    <b style="font-size: 20px">Our website offers resources and opportunities for youth to get started on their journey towards fighting poverty.</b>
+</div>
+@*<div class="content">
     <p class="text-center"><i><b style="font-size:20px">Our website offers resources and opportunities for youth to get started on their journey towards fighting poverty.</b></i></p>
-    <img src="@Url.Content("~/Images/HandsIndex.png")" class="center"></img>
+</div>*@
+
+<div class="image">
+    <br>
+    <b style="font-size:30px; font-style:italic; color: white; text-shadow: 2px 2px black;">Feeling of a sense of purpose is just a few clicks away!</b>
+    <br></br>
+    <br></br>
+    <div>
+        <div class="card">
+            <button id="button" onclick="location.href='@Url.Action("PreferenceCheck", "Jobs")'">Volunteer Search</button>
+            <p id="paragraph">Make a difference in the community by donating your time to educate those in need.</p>
+        </div>
+        <div class="card">
+            <button id="button" onclick="location.href='@Url.Action("Infographics", "Home")'">Infographics</button>
+            <p id="paragraph">Our comprehensive information page will help you to understand the disparity between the rich and poor.</p>
+        </div>
+        <div class="card">
+            <button id="button" onclick="location.href='@Url.Action("Test", "Home")'">Aptitude Quiz</button>
+            <p id="paragraph">Take a quiz to see what opportunities best suit you and how you can contribute to the fight!</p>
+        </div>
+    </div>
+    
 </div>
 
 <style>
+    .image{
+        width: 100%;
+        height: 500px;
+        background-image: url("./Images/header-jumbo.gif");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        text-align: center;
+    }
     .content{
         max-width: 700px;
         margin:auto;
     }
     .center{
+        block-size: 100%;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
         width: 100%;
+        background-size: cover;
     }
-</style>
+    .button{
+        float: left;
+        margin-left: 80px;
+        margin-right: auto;
+    }
 
-@*<div class="text-center" style="margin-top:50px;" id="option">
-    <p><b>Feeling of a sense of purpose is just a few clicks away!<b /></p>
-
-    <button type="button" class="button" onclick="location.href='@Url.Action("PreferenceCheck", "Jobs")'">Volunteer Search</button><br />
-    <button type="button" class="button" onclick="location.href='@Url.Action("Test", "Home")'">Infographics</button><br />
-    <button type="button" class="button" onclick="location.href='@Url.Action("Test", "Home")'">Aptitude Quiz</button><br />
-    <style>
-        .button {
-            background-color: #C2EDCE;
-            padding: 10px 16px;
-            border-radius: 25px;
-            width: 25%;
-            margin: 5px;
-        }
-    </style>
-</div>*@
-<div class="text-center" style="padding-top:50px;">
-    <b style="font-size:20px">Feeling of a sense of purpose is just a few clicks away!</b>
-</div>
-
-<div style="padding-top:50px;">
-    <div class="card">
-        <button id="button" onclick="location.href='@Url.Action("PreferenceCheck", "Jobs")'">Volunteer Search</button>
-        <div>
-            <p id="paragraph">Make a difference in the community by donating your time to educate those in need.</p>
-        </div>
-
-    </div>
-
-    <div class="card">
-        <button id="button" onclick="location.href='@Url.Action("Test", "Home")'">Infographics</button>
-        <div>
-            <p id="paragraph">Our comprehensive information page will help you to understand the disparity between the rich and poor.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <button id="button" onclick="location.href='@Url.Action("Test", "Home")'">Aptitude Quiz</button>
-        <div>
-            <p id="paragraph">Take a quiz to see what opportunities best suit you and how you can contribute to the fight!</p>
-        </div>
-    </div>
-    <style>
-        .card {
-            text-align: center;
-            width: 25%;
-            height: 250px;
-            float: left;
-            margin-left: 80px;
-            margin-right: auto;
-            background-color:lightyellow;
-            border-radius: 25px;
-        }
+    .card {
+        text-align: center;
+        width: 25%;
+        height: 250px;
+        float: left;
+        margin-left: 80px;
+        margin-right: auto;
+        background-color: lightyellow;
+        border-radius: 10px;
+    }
 
         .card:hover {
-                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
 
 
-        #paragraph {
-            padding-top: 30px;
-            font-size: 20px;
-            font-weight: bold;
-        }
+    #paragraph {
+        padding-top: 30px;
+        font-size: 20px;
+        font-weight: bold;
+    }
 
-        #button {
-            border-radius: 25px;
-            padding: 10px 16px;
-            background-color: #C2EDCE;
-            font-size:20px;
-            font-weight:bold;
-        }
+    #button {
+        border-radius: 10px;
+        padding: 10px 16px;
+        background-color: forestgreen;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        font-family: Arial;
+    }
 
         #button:hover {
-            background-color: #3e8e41
+            background-color: greenyellow;
         }
 
         #button:active {
@@ -112,5 +103,5 @@
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }
-    </style>
-</div>
+</style>
+
