@@ -2,13 +2,14 @@
     ViewData["Title"] = "Infographics";
 }
 
-<h1 class="text-center" style="padding-bottom: 20px">Infographics</h1>
+<h1 class="text-center" style="padding-bottom: 20px; color: white; text-shadow: 2px 2px black;">Infographics - Learn About the Power of Education</h1>
 
 <!-- refer to local js file -->
 <script src=@Url.Content("~/package/dist/echarts.js")></script>
 
-<h2>Educational Level VS Income Bracket</h2>
-<div id="main" style="width: 1000px;height:600px;"></div>
+<h2 class="text-center">Educational Level VS Income Bracket</h2>
+
+<div class="text-center" id="main" style="width: 100%;height:600px;"></div>
 
 <script type="text/javascript">
     // initialize the dom of echart
@@ -51,7 +52,8 @@
                 label: {
                     show: true
                 },
-                data: [7382, 4259, 2998, 2836]
+                data: [7382, 4259, 2998, 2836],
+                color: '#3796FC'
             },
             {
                 name: 'Certificate I-III',
@@ -60,7 +62,8 @@
                 label: {
                     position: 'insideRight'
                 },
-                data: [217, 316, 304, 323]
+                data: [217, 316, 304, 323],
+                color: '#6AEA6C'
             },
             {
                 name: 'Apprenticeship & Traineeship',
@@ -69,7 +72,8 @@
                 label: {
                     position: 'insideRight'
                 },
-                data: [515, 621, 569, 550]
+                data: [515, 621, 569, 550],
+                color: '#7D6AEA'
             },
             {
                 name: 'Certificate IV or higher',
@@ -78,7 +82,8 @@
                 label: {
                     position: 'insideRight'
                 },
-                data: [1094, 1097, 947, 867]
+                data: [1094, 1097, 947, 867],
+                color: '#EA6A6A'
             },
             {
                 name: 'Employed',
@@ -87,32 +92,111 @@
                 label: {
                     position: 'insideRight'
                 },
-                data: [1605, 1266, 1290, 1217]
+                data: [1605, 1266, 1290, 1217],
+                color: '#6AEADB'
             }
         ]
     };
     myChart.setOption(option);
 </script>
 
-<div id="p1">
-    <p>The graph analysis shows a clear positive correlation between educational attainment and income levels. 
-        The data suggests that the higher the level of education, the higher the income an individual is likely to make. 
-        The graph demonstrates that those with tertiary degrees, such as a Bachelors, 
-        have significantly higher median incomes than those with associate degrees or trade degrees. 
-        This reinforces the importance of investing in higher education as a means of improving one's future income potential. 
-        The bar chart highlights the significance of education in providing individuals with access to better-paying jobs and higher socioeconomic status. 
-        Therefore, the bar chart underscores the importance of pursuing educational opportunities, 
-        particularly for those seeking to advance their careers and increase their earning potential.</p>
+<div id="p1" style="position: absolute">
+    <p>
+        The graph analysis shows a clear positive correlation between educational attainment and income levels.
+        The data suggests that the higher the level of education, the higher the income an individual is likely to make.
+        The graph demonstrates that those with tertiary degrees, such as a Bachelors,
+        have significantly higher median incomes than those with associate degrees or trade degrees.
+        This reinforces the importance of investing in higher education as a means of improving one's future income potential.
+        The bar chart highlights the significance of education in providing individuals with access to better-paying jobs and higher socioeconomic status.
+        Therefore, the bar chart underscores the importance of pursuing educational opportunities,
+        particularly for those seeking to advance their careers and increase their earning potential.
+    </p>
 </div>
 
 <style>
-    #main {
-        align-content: center;
-        text-align: center;
-    }
 
     #p1 {
         font-size: 20px;
         float: left;
     }
 </style>
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+<div>
+    <h1 class="text-center">Educational Levls in Metropolitan Area VS Rural Area</h1>
+    <div id="chart3" style="width: 100%; height: 700px;"></div>
+    <script type="text/javascript">
+        var myChartbar = echarts.init(document.getElementById('chart3'));
+        var option = {
+            legend: {
+                top: 40
+
+            },
+            textStyle: {
+                fontSize: 16,
+                color: '#fff',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                textShadowColor: 'none'
+            },
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['Destination', 'Metropolitan', 'Non-Metropolitan'],
+                    ['Bachelor Dagree', 14242, 3235],
+                    ['Certificate I-III', 814, 347],
+                    ['Certificate IV+', 3259, 746],
+                    ['Employed', 3018, 2351],
+                    ['Apprenticeship & Traineeship', 1298, 957]
+                ]
+            },
+            title: [
+                {
+                    text: 'Metropolitan',
+                    left: '40%',
+                    top: '17%',
+                    textAlign: 'center'
+                },
+                {
+                    text: 'Non-Metropolitan',
+                    left: '60%',
+                    top: '86%',
+                    textAlign: 'center'
+                }
+            ],
+            series: [
+                {
+                    type: 'pie',
+                    radius: '20%',
+                    center: ['40%', '40%'],
+                    label: {
+                        formatter: '{b}: ({d}%)'
+                    }
+                    // No encode specified, by default, it is '2012'.
+                },
+                {
+                    type: 'pie',
+                    radius: '20%',
+                    center: ['60%', '70%'],
+                    label: {
+                        formatter: '{b}: ({d}%)'
+                    },
+                    encode: {
+                        itemName: 'Destination',
+                        value: 'Non-Metropolitan'
+                    }
+                }
+            ]
+        };
+        myChartbar.setOption(option)
+    </script>
+</div>
+<div>
+    <p>More people in Metro area have tertiary education (63%) than Non-Metro area (42%)</p>
+</div>
