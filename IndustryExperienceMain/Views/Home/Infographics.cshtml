@@ -1,15 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Infographics";
 }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+<!-- Bootstrap Font Icon CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-<h1 class="text-center" style="padding-bottom: 20px; color: white; text-shadow: 2px 2px black;">Infographics - Learn About the Power of Education</h1>
+<h1 class="text-center" style="font-size: 50px; padding-bottom: 20px; color: white; text-shadow: 2px 2px black;">Infographics - Learn About the Power of Education</h1>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+<script src="https://kit.fontawesome.com/3d0e52163a.js" crossorigin="anonymous"></script>
 
 <!-- refer to local js file -->
 <script src=@Url.Content("~/package/dist/echarts.js")></script>
 
-<h2 class="text-center">Educational Level VS Income Bracket</h2>
+<h1 class="text-center"><b style="font-family:Consolas">Educational Level VS Income Bracket</b></h1>
 
-<div class="text-center" id="main" style="width: 100%;height:600px;"></div>
+<div class="container" id="main" style="width: 100%;height:600px;"></div>
 
 <script type="text/javascript">
     // initialize the dom of echart
@@ -100,17 +107,33 @@
     myChart.setOption(option);
 </script>
 
-<div id="p1" style="position: absolute">
-    <p>
-        The graph analysis shows a clear positive correlation between educational attainment and income levels.
-        The data suggests that the higher the level of education, the higher the income an individual is likely to make.
-        The graph demonstrates that those with tertiary degrees, such as a Bachelors,
-        have significantly higher median incomes than those with associate degrees or trade degrees.
-        This reinforces the importance of investing in higher education as a means of improving one's future income potential.
-        The bar chart highlights the significance of education in providing individuals with access to better-paying jobs and higher socioeconomic status.
-        Therefore, the bar chart underscores the importance of pursuing educational opportunities,
-        particularly for those seeking to advance their careers and increase their earning potential.
-    </p>
+<br></br>
+<br></br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md text-center">
+            <i class="fa-solid fa-school" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-graduation-cap" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-sack-dollar" style="font-size: 100px"></i>
+        </div>
+    </div>
+    <br></br>
+    <div class="row">
+        <div class="col-md text-center">
+            <b style="font-size: 20px">Undeniable correlation between Education Attainment & Income Level for the general population</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">Tertiary Education offers people with the highest possibility of a high-paying job</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">Education in important in providing individuals with access to better jobs and higher socioeconomic status</b>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -119,24 +142,23 @@
         font-size: 20px;
         float: left;
     }
+
 </style>
 
 <br></br>
 <br></br>
-<br></br>
-<br></br>
+<hr style="height:5px;">
 <br></br>
 <br></br>
 
 <div>
-    <h1 class="text-center">Educational Levls in Metropolitan Area VS Rural Area</h1>
+    <h1 class="text-center"><b style="font-family:Consolas;">Educational Levels in Metropolitan Area VS Rural Area</b></h1>
     <div id="chart3" style="width: 100%; height: 700px;"></div>
     <script type="text/javascript">
         var myChartbar = echarts.init(document.getElementById('chart3'));
         var option = {
             legend: {
                 top: 40
-
             },
             textStyle: {
                 fontSize: 16,
@@ -173,10 +195,11 @@
             series: [
                 {
                     type: 'pie',
-                    radius: '20%',
+                    radius: '30%',
                     center: ['40%', '40%'],
                     label: {
-                        formatter: '{b}: ({d}%)'
+                        formatter: '{b}: ({d}%)',
+                        fontWeight: "bold"
                     }
                     // No encode specified, by default, it is '2012'.
                 },
@@ -185,7 +208,8 @@
                     radius: '20%',
                     center: ['60%', '70%'],
                     label: {
-                        formatter: '{b}: ({d}%)'
+                        formatter: '{b}: ({d}%)',
+                        fontWeight: "bold"
                     },
                     encode: {
                         itemName: 'Destination',
@@ -197,6 +221,29 @@
         myChartbar.setOption(option)
     </script>
 </div>
-<div>
-    <p>More people in Metro area have tertiary education (63%) than Non-Metro area (42%)</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md text-center">
+            <i class="fa-solid fa-city" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-mountain-sun" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-scale-balanced" style="font-size: 100px"></i>
+        </div>
+    </div>
+    <br></br>
+    <div class="row">
+        <div class="col-md text-center">
+            <b style="font-size: 20px">People who live closeer to the city tends to go to University to receive tertiary education</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">People who live in rural areas tend to be more attracted to trades and other employement opportunities</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">One is not better than the other, University simple provides high probable outcome to become financially independent</b>
+        </div>
+    </div>
 </div>
