@@ -1,0 +1,249 @@
+﻿@{
+    ViewData["Title"] = "Infographics";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+<!-- Bootstrap Font Icon CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<h1 class="text-center" style="font-size: 50px; padding-bottom: 20px; color: white; text-shadow: 2px 2px black;">Infographics - Learn About the Power of Education</h1>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+<script src="https://kit.fontawesome.com/3d0e52163a.js" crossorigin="anonymous"></script>
+
+<!-- refer to local js file -->
+<script src=@Url.Content("~/package/dist/echarts.js")></script>
+
+<h1 class="text-center"><b style="font-family:Consolas">Educational Level VS Income Bracket</b></h1>
+
+<div class="container" id="main" style="width: 100%;height:600px;"></div>
+
+<script type="text/javascript">
+    // initialize the dom of echart
+    var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            right: 'auto',
+            data: ['Bachelor', 'Certificate I-III', 'Apprenticeship & Traineeship', 'Certificate IV or higher', 'Employed']
+        },
+        grid: {
+            left: '3%',
+            right: '20%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            name: 'NO. of Students',
+            type: 'value'
+        },
+        yAxis: {
+            name: 'Income Bracket',
+            type: 'category',
+            data: ['Highest', 'Upper-middle', 'Lower-middle', 'Lowest']
+        },
+        textStyle: {
+            fontSize: 14
+        },
+        series: [
+            {
+                name: 'Bachelor',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                data: [7382, 4259, 2998, 2836],
+                color: '#3796FC'
+            },
+            {
+                name: 'Certificate I-III',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [217, 316, 304, 323],
+                color: '#6AEA6C'
+            },
+            {
+                name: 'Apprenticeship & Traineeship',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [515, 621, 569, 550],
+                color: '#7D6AEA'
+            },
+            {
+                name: 'Certificate IV or higher',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [1094, 1097, 947, 867],
+                color: '#EA6A6A'
+            },
+            {
+                name: 'Employed',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    position: 'insideRight'
+                },
+                data: [1605, 1266, 1290, 1217],
+                color: '#6AEADB'
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+
+<br></br>
+<br></br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md text-center">
+            <i class="fa-solid fa-school" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-graduation-cap" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-sack-dollar" style="font-size: 100px"></i>
+        </div>
+    </div>
+    <br></br>
+    <div class="row">
+        <div class="col-md text-center">
+            <b style="font-size: 20px">Undeniable correlation between Education Attainment & Income Level for the general population</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">Tertiary Education offers people with the highest possibility of a high-paying job</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">Education in important in providing individuals with access to better jobs and higher socioeconomic status</b>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    #p1 {
+        font-size: 20px;
+        float: left;
+    }
+
+</style>
+
+<br></br>
+<br></br>
+<hr style="height:5px;">
+<br></br>
+<br></br>
+
+<div>
+    <h1 class="text-center"><b style="font-family:Consolas;">Educational Levels in Metropolitan Area VS Rural Area</b></h1>
+    <div id="chart3" style="width: 100%; height: 700px;"></div>
+    <script type="text/javascript">
+        var myChartbar = echarts.init(document.getElementById('chart3'));
+        var option = {
+            legend: {
+                top: 40
+            },
+            textStyle: {
+                fontSize: 16,
+                color: '#fff',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                textShadowColor: 'none'
+            },
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['Destination', 'Metropolitan', 'Non-Metropolitan'],
+                    ['Bachelor Dagree', 14242, 3235],
+                    ['Certificate I-III', 814, 347],
+                    ['Certificate IV+', 3259, 746],
+                    ['Employed', 3018, 2351],
+                    ['Apprenticeship & Traineeship', 1298, 957]
+                ]
+            },
+            title: [
+                {
+                    text: 'Metropolitan',
+                    left: '40%',
+                    top: '17%',
+                    textAlign: 'center'
+                },
+                {
+                    text: 'Non-Metropolitan',
+                    left: '60%',
+                    top: '86%',
+                    textAlign: 'center'
+                }
+            ],
+            series: [
+                {
+                    type: 'pie',
+                    radius: '30%',
+                    center: ['40%', '40%'],
+                    label: {
+                        formatter: '{b}: ({d}%)',
+                        fontWeight: "bold"
+                    }
+                    // No encode specified, by default, it is '2012'.
+                },
+                {
+                    type: 'pie',
+                    radius: '20%',
+                    center: ['60%', '70%'],
+                    label: {
+                        formatter: '{b}: ({d}%)',
+                        fontWeight: "bold"
+                    },
+                    encode: {
+                        itemName: 'Destination',
+                        value: 'Non-Metropolitan'
+                    }
+                }
+            ]
+        };
+        myChartbar.setOption(option)
+    </script>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md text-center">
+            <i class="fa-solid fa-city" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-mountain-sun" style="font-size: 100px"></i>
+        </div>
+        <div class="col-md text-center">
+            <i class="fa-solid fa-scale-balanced" style="font-size: 100px"></i>
+        </div>
+    </div>
+    <br></br>
+    <div class="row">
+        <div class="col-md text-center">
+            <b style="font-size: 20px">People who live closeer to the city tends to go to University to receive tertiary education</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">People who live in rural areas tend to be more attracted to trades and other employement opportunities</b>
+        </div>
+        <div class="col-md text-center">
+            <b style="font-size: 20px">One is not better than the other, University simple provides high probable outcome to become financially independent</b>
+        </div>
+    </div>
+</div>
