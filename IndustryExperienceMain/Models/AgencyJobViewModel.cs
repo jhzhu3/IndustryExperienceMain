@@ -11,5 +11,7 @@
         public string TimeSection { get; set; } = null!;
 
         public string Workplace { get; set; } = null!;
+
+        public string AgencyLink { get; set; } = null!;
     }
 }

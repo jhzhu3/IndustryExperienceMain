@@ -1,12 +1,111 @@
-﻿
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "About Us";
 }
 
-@*<div class="text-center" id="about">
-    <h1>WE ARE CURRENTLY UNDER CONSTRUCTION</h1>
-    <p><strong>Please come back at a later time.</strong></p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="slideshow">
+                <div>
+                    <h2>Develop Skills, Make an Impact</h2>
+                    <p>Volunteer to Support Education and Reduce Poverty in Victoria</p>
+                </div>
+                <div>
+                    <h2>Increasing Awareness</h2>
+                    <p>Our goal is to increase awareness and understanding of the impact of poverty on educational outcomes and employment opportunities in Victoria.</p>
+                </div>
+                <div>
+                    <h2>3rd Mission</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Our Team</h1>
+            <div class="card-group">
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 1">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Aditya Aspat</h3>
+                        <p>MCS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 2">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Cao Ngo Thanh Phuong</h3>
+                        <p>MBIS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 3">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Jonathan Zhu</h3>
+                        <p>MIT</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 4">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Mingtian Ma</h3>
+                        <p>MDS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <div class="team-member-image">
+                        <img src="https://via.placeholder.com/150" alt="Team Member 5">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Yuxian Shu</h3>
+                        <p>MDS</p>
+                        <a href="#"> <img src="https://www.freeiconspng.com/uploads/linkedin-logo-3.png" width="40" height="30" alt="LinkedIn"> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section scripts {
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slideshow').slick({
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: false,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+            });
+        });
+    </script>
+}
 
 <style>
     #about {
@@ -19,141 +118,63 @@
         width: 500px;
         height: 200px;
     }
-</style>*@
-<div id="one">
-    <div class="text-center" style="padding-top: 100px">
-        <h1>OUR MISSION</h1>
-        <b>Empowering young minds to fight poverty and build a better tomorrow.</b>
-    </div>
-
-    <div class="card" id="mission">
-        <h2>Donate your time.</h2>
-        <p>Volunteer to educate those in need</p>
-    </div>
-
-    <div class="card" id="mission">
-        <h2>Increase your knowledge.</h2>
-        <p>Educate yourself and make a difference</p>
-    </div>
-
-    <div class="card" id="mission">
-        <h2>Learn, Play, Impact!</h2>
-        <p>Discover who you are and how you can help</p>
-    </div>
-</div>
-
-<div id="two">
-    <div class="text-center" id="team" style="clear: both; padding-top: 100px;">
-        <h1>OUR TEAM</h1>
-        <b>Social Software Squad... Assemble...</b>
-    </div>
-
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <div class="container">
-                    <h3>Aditya Aspat</h3>
-                    <p class="title">Cyber Security Engineer</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <div class="container">
-                    <h3>Jonathan Zhu</h3>
-                    <p class="title">Software Developer</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <div class="container">
-                    <h3>Mingtian Ma</h3>
-                    <p class="title">Data Engineer</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <div class="container">
-                    <h3>Ngo Cao</h3>
-                    <p class="title">Business Analyst</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <div class="container">
-                    <h3>Yuxian Shu</h3>
-                    <p class="title">Data Scientist</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<style>
-    #mission{
-        text-align: center;
+    .slideshow {
+        margin-top: 20px;
+        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .team-member-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        width: 25%;
-        height: 150px;
-        margin-left: 80px;
-        margin-right: auto;
-        float:left;
-        margin-bottom: 50px;
-        margin-top: 25px;
-        background-color: cadetblue;
+        width: 200px;
+        height: 300px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 20px;
     }
-    #team {
-        margin-top: 100px;
-        
-    }
-    .column {
-        width: 20%;
-        float: left;
-        padding-top: 25px;
-    }
-
-    .card {
-        background-color: lightgreen;
-        border-radius: 25px;
-    }
-
-    .button {
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
-        color: white;
-        background-color: #000;
-        text-align: center;
-        cursor: pointer;
+    
+    .team-member-image {
         width: 100%;
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-
-    h1 {
-        font-size: 50px
+    
+    .team-member-image img {
+        width: 80%;
+        height: auto;
+        border-radius: 50%;
+    }
+    
+    .team-member-info {
+        width: 100%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .team-member-info h3 {
+        margin: 8px 0;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .team-member-info p {
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+    
+    .team-member-info img {
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
     }
 </style>

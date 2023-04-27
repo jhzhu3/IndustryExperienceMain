@@ -87,7 +87,8 @@ namespace IndustryExperienceMain.Controllers
                                     TypeOfWork = t2.TypeOfWork,
                                     Commitment = t2.Commitment,
                                     TimeSection = t2.TimeSection,
-                                    Workplace = t2.Workplace
+                                    Workplace = t2.Workplace,
+                                    AgencyLink = t1.Link
                                  }).ToList();
 
             var query = viewModelList.AsQueryable();
