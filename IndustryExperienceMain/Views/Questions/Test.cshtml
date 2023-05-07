@@ -1,0 +1,40 @@
+﻿@model Tuple<List<Question>, List<Answer>>
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h1>Test</h1>
+
+@*@{
+    var QuestionList = Model.ToList();
+    foreach (var item in QuestionList)
+    {
+        @Html.DisplayFor(modelItem => item.Question);
+    }
+
+}*@
+
+@using (Html.BeginForm())
+{
+    var QuestionList = Model.Item1.ToList();
+    var AnswerList = Model.Item2.ToList();
+    for (int i = 0; i < QuestionList.Count; i++)
+    {
+        <div>
+            <h2>@QuestionList[i].Text</h2>
+            <ul>
+                @if (AnswerList[i].QuestionId.Equals(QuestionList[i].Id))
+                {
+                    for (int j = 0; j < AnswerList.Count; j++)
+                    {
+                        <li>
+                            @AnswerList[j].Text
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    }
+
+    <button type="submit">Submit Quiz</button>
+}
