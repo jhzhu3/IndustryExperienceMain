@@ -1,9 +1,15 @@
-﻿@model Tuple<List<Question>, List<Answer>>
+﻿@model Tuple<List<Question>, List<Answer>, List<int>>
 @{
     ViewData["Title"] = "QuestionThree";
 }
 
 <h1>Question Three</h1>
+
+@{
+    var test = Model.Item3.ToList();
+    var point = test[1];
+    <p>@point.ToString()</p>
+}
 
 @using (Html.BeginForm("QuestionFour", "Questions", FormMethod.Post))
 {

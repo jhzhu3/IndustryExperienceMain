@@ -18,6 +18,7 @@ namespace IndustryExperienceMain.Controllers
         private readonly IndustryExperienceMainDbContext _context;
 
         //private Tuple quizTuple;
+        public List<int> pointsList {get; set;}
 
         public QuestionsController(IndustryExperienceMainDbContext context)
         {
@@ -31,115 +32,99 @@ namespace IndustryExperienceMain.Controllers
             return View(await industryExperienceMainDbContext.ToListAsync());
         }
 
-        /*        public IActionResult Test()
-                {
-                    var questionsTable = _context.Questions.ToList();
-                    var answersTable = _context.Answers.ToList();
-                    var individualAnswerList = new List<Answer>();
-
-                    var viewModelList = (from t1 in questionsTable
-                                         join t2 in answersTable on t1.Id equals t2.QuestionId
-                                         select new MyItem
-                                         {
-                                             Id = t1.Id,
-                                             Title = t1.Text,
-                                             Answer = t2.Text,
-                                             Points = t2.Points 
-                                         }).ToList();
-                    var model = new QuestionAnswerViewModel { Questions = viewModelList };
-                    var query = model.AsQueryable();
-                    var result = query.ToList();
-                    return View(model); 
-                }*/
         public IActionResult QuestionIndex()
         {
-/*            var questionsTable = _context.Questions.ToList();
-            var answersTable = _context.Answers.ToList();
-
-            var viewModelList = (from t1 in questionsTable
-                                 join t2 in answersTable on t1.Id equals t2.QuestionId
-                                 select new QuestionAnswerViewModel
-                                 {
-                                     Question = t1.Text,
-                                     Answers = t2.Text.Where(t2.QuestionId.Equals(t1.Id)),
-                                     Points = t2.Points
-                                 }).ToList();
-
-            var query = viewModelList.AsQueryable();
-
-            var results = query.ToList();
-
-            return View(results);*/
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
+            pointsList = new List<int>(new int[7]);
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
 
             return View(tupleModel);
         }
 
-        //[HttpPost]
-        //public IActionResult Test(IFormCollection SelectedAnswerId)
-        //{
-        //    return View(SelectedAnswerId);
-        //}
-
-        public ActionResult QuestionTwo() {
-            var questionsTable = _context.Questions.ToList();
-            var answersTable = _context.Answers.ToList();
-
-            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
-            return View(tupleModel);
-        }
-
-        public ActionResult QuestionThree()
+        public ActionResult QuestionTwo(int answer1)
         {
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            //var pointsList = new List<int>( new int[7]);
+            pointsList[0] = answer1;
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
             return View(tupleModel);
         }
 
-        public ActionResult QuestionFour()
+        public ActionResult QuestionThree(int answer2)
         {
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            //var pointsList = new List<int>(new int[7]);
+            pointsList[1] = answer2;
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
             return View(tupleModel);
         }
 
-        public ActionResult QuestionFive()
+        public ActionResult QuestionFour(int answer3)
         {
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            //var pointsList = new List<int>(new int[7]);
+            pointsList[2] = answer3;
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
             return View(tupleModel);
         }
 
-        public ActionResult QuestionSix()
+        public ActionResult QuestionFive(int answer4)
         {
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            //var pointsList = new List<int>(new int[7]);
+            pointsList[3] = answer4;
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
             return View(tupleModel);
         }
 
-        public ActionResult QuestionSeven()
+        public ActionResult QuestionSix(int answer5)
         {
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            //var pointsList = new List<int>(new int[7]);
+            pointsList[4] = answer5;
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
             return View(tupleModel);
         }
 
-        public ActionResult QuizFinish()
+        public ActionResult QuestionSeven(int answer6)
         {
-            return View();
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            //var pointsList = new List<int>(new int[7]);
+            pointsList[5] = answer6;
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            return View(tupleModel);
+        }
+
+        public ActionResult QuizFinish(int answer7)
+        {
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            //var pointsList = new List<int>(new int[7]);
+            pointsList[6] = answer7;
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            return View(tupleModel);
         }
 
         // GET: Questions/Details/5
