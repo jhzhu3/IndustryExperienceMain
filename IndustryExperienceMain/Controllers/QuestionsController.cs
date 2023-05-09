@@ -29,31 +29,61 @@ namespace IndustryExperienceMain.Controllers
             return View(await industryExperienceMainDbContext.ToListAsync());
         }
 
-        public IActionResult Test() 
+        /*        public IActionResult Test()
+                {
+                    var questionsTable = _context.Questions.ToList();
+                    var answersTable = _context.Answers.ToList();
+                    var individualAnswerList = new List<Answer>();
+
+                    var viewModelList = (from t1 in questionsTable
+                                         join t2 in answersTable on t1.Id equals t2.QuestionId
+                                         select new MyItem
+                                         {
+                                             Id = t1.Id,
+                                             Title = t1.Text,
+                                             Answer = t2.Text,
+                                             Points = t2.Points 
+                                         }).ToList();
+                    var model = new QuestionAnswerViewModel { Questions = viewModelList };
+                    var query = model.AsQueryable();
+                    var result = query.ToList();
+                    return View(model); 
+                }*/
+        public IActionResult Test()
         {
-            /*            var questionsTable = _context.Questions.ToList();
-                        var answersTable = _context.Answers.ToList();
+/*            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
 
-                        var viewModelList = (from t1 in questionsTable
-                                             join t2 in answersTable on t1.Id equals t2.QuestionId
-                                             select new QuestionAnswerViewModel
-                                             {
-                                                 Question = t1.Text,
-                                                 Answers = t2.Text.Where(t2.QuestionId.Equals(t1.Id)),
-                                                 Points = t2.Points
-                                             }).ToList();
+            var viewModelList = (from t1 in questionsTable
+                                 join t2 in answersTable on t1.Id equals t2.QuestionId
+                                 select new QuestionAnswerViewModel
+                                 {
+                                     Question = t1.Text,
+                                     Answers = t2.Text.Where(t2.QuestionId.Equals(t1.Id)),
+                                     Points = t2.Points
+                                 }).ToList();
 
-                        var query = viewModelList.AsQueryable();
+            var query = viewModelList.AsQueryable();
 
-                        var results = query.ToList();
+            var results = query.ToList();
 
-                        return View(results);*/
+            return View(results);*/
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
 
             var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
 
             return View(tupleModel);
+        }
+
+        [HttpPost]
+        public IActionResult Test(IFormCollection SelectedAnswerId)
+        {
+            return View(SelectedAnswerId);
+        }
+
+        public ActionResult TestTwo(int points) { 
+            return View(points);
         }
 
         // GET: Questions/Details/5

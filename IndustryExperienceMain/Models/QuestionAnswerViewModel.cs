@@ -2,9 +2,16 @@
 {
     public class QuestionAnswerViewModel
     {
-        public string Question { get; set; } = null!;
+        public List<MyItem> Questions { get; set; }
 
-        public List<Answer> Answers { get; set; } = null!;
+    }
+
+    public class MyItem
+    { 
+        public int Id { get; set; }
+        public string Title { get; set; }
+
+        public string Answer { get; set; }
 
         public int Points { get; set; }
     }
