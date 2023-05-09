@@ -1,0 +1,24 @@
+﻿@model Tuple<List<Question>, List<Answer>>
+@{
+    ViewData["Title"] = "QuestionSeven";
+}
+
+<h1>Question Seven</h1>
+
+@using (Html.BeginForm("QuizFinish", "Questions", FormMethod.Post))
+{
+    var QuestionList = Model.Item1.ToList();
+    var AnswerList = Model.Item2.ToList();
+    var question7 = QuestionList[6];
+    <h2>@question7.Text</h2>
+    <ul>
+        @foreach (var answer in AnswerList)
+        {
+            if (answer.QuestionId.Equals(question7.Id))
+            {
+                <li>@Html.RadioButton("answer7", answer.Points) @answer.Text</li>
+            }
+        }
+    </ul>
+    <input type="submit" value="Submit"></input>
+}

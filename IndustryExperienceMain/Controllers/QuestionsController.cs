@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using IndustryExperienceMain.Models;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using AutoMapper;
+//using AutoMapper;
 using System.Dynamic;
 
 namespace IndustryExperienceMain.Controllers
@@ -16,6 +16,8 @@ namespace IndustryExperienceMain.Controllers
     public class QuestionsController : Controller
     {
         private readonly IndustryExperienceMainDbContext _context;
+
+        //private Tuple quizTuple;
 
         public QuestionsController(IndustryExperienceMainDbContext context)
         {
@@ -49,7 +51,7 @@ namespace IndustryExperienceMain.Controllers
                     var result = query.ToList();
                     return View(model); 
                 }*/
-        public IActionResult Test()
+        public IActionResult QuestionIndex()
         {
 /*            var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
@@ -76,14 +78,68 @@ namespace IndustryExperienceMain.Controllers
             return View(tupleModel);
         }
 
-        [HttpPost]
-        public IActionResult Test(IFormCollection SelectedAnswerId)
-        {
-            return View(SelectedAnswerId);
+        //[HttpPost]
+        //public IActionResult Test(IFormCollection SelectedAnswerId)
+        //{
+        //    return View(SelectedAnswerId);
+        //}
+
+        public ActionResult QuestionTwo() {
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            return View(tupleModel);
         }
 
-        public ActionResult TestTwo(int points) { 
-            return View(points);
+        public ActionResult QuestionThree()
+        {
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            return View(tupleModel);
+        }
+
+        public ActionResult QuestionFour()
+        {
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            return View(tupleModel);
+        }
+
+        public ActionResult QuestionFive()
+        {
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            return View(tupleModel);
+        }
+
+        public ActionResult QuestionSix()
+        {
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            return View(tupleModel);
+        }
+
+        public ActionResult QuestionSeven()
+        {
+            var questionsTable = _context.Questions.ToList();
+            var answersTable = _context.Answers.ToList();
+
+            var tupleModel = new Tuple<List<Question>, List<Answer>>(questionsTable, answersTable);
+            return View(tupleModel);
+        }
+
+        public ActionResult QuizFinish()
+        {
+            return View();
         }
 
         // GET: Questions/Details/5
