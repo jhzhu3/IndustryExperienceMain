@@ -1,4 +1,4 @@
-﻿@model Tuple<List<Question>, List<Answer>, List<int>>
+﻿@model Tuple<List<Question>, List<Answer>, int>
 @{
     ViewData["Title"] = "QuestionThree";
 }
@@ -6,9 +6,7 @@
 <h1>Question Three</h1>
 
 @{
-    var test = Model.Item3.ToList();
-    var point = test[1];
-    <p>@point.ToString()</p>
+    int point = Model.Item3;
 }
 
 @using (Html.BeginForm("QuestionFour", "Questions", FormMethod.Post))
@@ -22,7 +20,7 @@
         {
             if (answer.QuestionId.Equals(question3.Id))
             {
-                <li>@Html.RadioButton("answer3", answer.Points) @answer.Text</li>
+                <li>@Html.RadioButton("answer3", answer.Points+point) @answer.Text</li>
             }
         }
     </ul>

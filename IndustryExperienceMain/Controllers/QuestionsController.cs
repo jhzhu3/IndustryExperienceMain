@@ -17,8 +17,10 @@ namespace IndustryExperienceMain.Controllers
     {
         private readonly IndustryExperienceMainDbContext _context;
 
+        private int points;
+
         //private Tuple quizTuple;
-        public List<int> pointsList {get; set;}
+        
 
         public QuestionsController(IndustryExperienceMainDbContext context)
         {
@@ -36,9 +38,10 @@ namespace IndustryExperienceMain.Controllers
         {
             var questionsTable = _context.Questions.ToList();
             var answersTable = _context.Answers.ToList();
-            pointsList = new List<int>(new int[7]);
+            //pointsList = new List<int>(new int[7]);
+            
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
 
             return View(tupleModel);
         }
@@ -49,9 +52,10 @@ namespace IndustryExperienceMain.Controllers
             var answersTable = _context.Answers.ToList();
 
             //var pointsList = new List<int>( new int[7]);
-            pointsList[0] = answer1;
+            //pointsList[0] = answer1;
+            points = answer1;
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
             return View(tupleModel);
         }
 
@@ -61,9 +65,9 @@ namespace IndustryExperienceMain.Controllers
             var answersTable = _context.Answers.ToList();
 
             //var pointsList = new List<int>(new int[7]);
-            pointsList[1] = answer2;
+            points = answer2;
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
             return View(tupleModel);
         }
 
@@ -73,9 +77,9 @@ namespace IndustryExperienceMain.Controllers
             var answersTable = _context.Answers.ToList();
 
             //var pointsList = new List<int>(new int[7]);
-            pointsList[2] = answer3;
+            points = answer3;
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
             return View(tupleModel);
         }
 
@@ -85,9 +89,9 @@ namespace IndustryExperienceMain.Controllers
             var answersTable = _context.Answers.ToList();
 
             //var pointsList = new List<int>(new int[7]);
-            pointsList[3] = answer4;
+            points = answer4;
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
             return View(tupleModel);
         }
 
@@ -97,9 +101,9 @@ namespace IndustryExperienceMain.Controllers
             var answersTable = _context.Answers.ToList();
 
             //var pointsList = new List<int>(new int[7]);
-            pointsList[4] = answer5;
+            points = answer5;
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
             return View(tupleModel);
         }
 
@@ -109,9 +113,9 @@ namespace IndustryExperienceMain.Controllers
             var answersTable = _context.Answers.ToList();
 
             //var pointsList = new List<int>(new int[7]);
-            pointsList[5] = answer6;
+            points = answer6;
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
             return View(tupleModel);
         }
 
@@ -121,9 +125,9 @@ namespace IndustryExperienceMain.Controllers
             var answersTable = _context.Answers.ToList();
 
             //var pointsList = new List<int>(new int[7]);
-            pointsList[6] = answer7;
+            points = answer7;
 
-            var tupleModel = new Tuple<List<Question>, List<Answer>, List<int>>(questionsTable, answersTable, pointsList);
+            var tupleModel = new Tuple<List<Question>, List<Answer>, int>(questionsTable, answersTable, points);
             return View(tupleModel);
         }
 

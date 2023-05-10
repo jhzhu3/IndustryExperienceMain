@@ -1,4 +1,4 @@
-﻿@model Tuple<List<Question>, List<Answer>, List<int>>
+﻿@model Tuple<List<Question>, List<Answer>, int>
 @{
     ViewData["Title"] = "Quiz Finish";
 }
@@ -7,9 +7,6 @@
 </div>
 
 @{
-    var test = Model.Item3.ToList();
-    foreach (var point in test)
-    {
-        <p>@point.ToString()</p>
-    }
+    int point = Model.Item3;
+    <p>@point.ToString()</p>
 }
