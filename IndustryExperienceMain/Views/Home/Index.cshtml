@@ -1,107 +1,90 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<style>
-    h1{
-        font-size:80px;
-    }
-</style>
-
-<div class="text-center" style="padding-bottom:20px;">
-    <b style="font-size: 20px">Our website offers resources and opportunities for youth to get started on their journey towards fighting poverty.</b>
-</div>
-@*<div class="content">
-    <p class="text-center"><i><b style="font-size:20px">Our website offers resources and opportunities for youth to get started on their journey towards fighting poverty.</b></i></p>
-</div>*@
-
-<div class="image">
-    <br>
-    <b style="font-size:30px; font-style:italic; color: white; text-shadow: 2px 2px black;">Feeling of a sense of purpose is just a few clicks away!</b>
-    <br></br>
-    <br></br>
-    <div>
-        <div class="card">
-            <button id="button" onclick="location.href='@Url.Action("PreferenceCheck", "Jobs")'">Volunteer Search</button>
-            <p id="paragraph">Make a difference in the community by donating your time to educate those in need.</p>
-        </div>
-        <div class="card">
-            <button id="button" onclick="location.href='@Url.Action("Infographics", "Home")'">Infographics</button>
-            <p id="paragraph">Our comprehensive information page will help you to understand the disparity between the rich and poor.</p>
-        </div>
-        <div class="card">
-            <button id="button" onclick="location.href='@Url.Action("Test", "Home")'">Aptitude Quiz</button>
-            <p id="paragraph">Take a quiz to see what opportunities best suit you and how you can contribute to the fight!</p>
+<div class="hero-banner">
+    <div class="banner-image"></div>
+    <div class="col-md-12 text-center">
+        <div class="slideshow" style="margin-top: 25%;">
+            <div>
+                <h2>Develop Skills, Make an Impact</h2>
+                <p>Volunteer to Support Education and Reduce Poverty in Victoria</p>
+            </div>
+            <div>
+                <h2>Increasing Awareness</h2>
+                <p>Our goal is to increase awareness and understanding of the impact of poverty on educational outcomes and employment opportunities in Victoria.</p>
+            </div>
+            <div>
+                <h2>3rd Mission</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
         </div>
     </div>
-    
 </div>
 
+
+
+@section scripts {
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slideshow').slick({
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: false,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+            });
+        });
+    </script>
+}
+
 <style>
-    .image{
-        width: 100%;
-        height: 500px;
+    .hero-banner {
+        background-position: center center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        }
+
+    .banner-image {
         background-image: url("./Images/header-jumbo.gif");
-        background-repeat: no-repeat;
-        background-size: 100%;
-        text-align: center;
-    }
-    .content{
-        max-width: 700px;
-        margin:auto;
-    }
-    .center{
-        block-size: 100%;
-        display: block;
-        width: 100%;
         background-size: cover;
-    }
-    .button{
-        float: left;
-        margin-left: 80px;
-        margin-right: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
     }
 
-    .card {
-        text-align: center;
-        width: 25%;
-        height: 250px;
-        float: left;
-        margin-left: 80px;
-        margin-right: auto;
-        background-color: lightyellow;
+    .hero-banner h2 {
+        font-size: 3em;
+        color: #5A5A5A;
+        margin-bottom: 0.5em;
+    }
+
+    .hero-banner p {
+        font-size: 1.2em;
+        color: #5A5A5A;
+        margin-bottom: 1em;
+    }
+
+    .slideshow {
+        margin-top: 20px;
+        padding: 15px;
         border-radius: 10px;
+        position: absolute;
+        z-index: 1;
     }
 
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-        }
-
-
-    #paragraph {
-        padding-top: 30px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    #button {
-        border-radius: 10px;
-        padding: 10px 16px;
-        background-color: forestgreen;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        font-family: Arial;
-    }
-
-        #button:hover {
-            background-color: greenyellow;
-        }
-
-        #button:active {
-            background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
+    
 </style>
-

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IndustryExperienceMain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using IndustryExperienceMain.Models;
 
 namespace IndustryExperienceMain.Controllers
 {
@@ -21,9 +16,9 @@ namespace IndustryExperienceMain.Controllers
         // GET: Agencies
         public async Task<IActionResult> Index()
         {
-              return _context.Agencies != null ? 
-                          View(await _context.Agencies.ToListAsync()) :
-                          Problem("Entity set 'IndustryExperienceSqldatabaseContext.Agencies'  is null.");
+            return _context.Agencies != null ?
+                        View(await _context.Agencies.ToListAsync()) :
+                        Problem("Entity set 'IndustryExperienceSqldatabaseContext.Agencies'  is null.");
         }
 
         // GET: Agencies/Details/5
@@ -149,14 +144,14 @@ namespace IndustryExperienceMain.Controllers
             {
                 _context.Agencies.Remove(agency);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AgencyExists(decimal id)
         {
-          return (_context.Agencies?.Any(e => e.AgencyId == id)).GetValueOrDefault();
+            return (_context.Agencies?.Any(e => e.AgencyId == id)).GetValueOrDefault();
         }
     }
 }

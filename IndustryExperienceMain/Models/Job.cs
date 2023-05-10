@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace IndustryExperienceMain.Models;
+﻿namespace IndustryExperienceMain.Models;
 
 public partial class Job
 {
