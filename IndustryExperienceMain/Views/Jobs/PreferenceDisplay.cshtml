@@ -28,12 +28,12 @@
                 <div class="col mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="agency image">
+                            <img src="@Html.DisplayFor(modelItem => item.AgencyLogo)" class="card-img-top" alt="Agency Logo">
                             <h5 class="card-title text-center"><a href="@Html.DisplayFor(modelItem => item.AgencyLink)">@Html.DisplayFor(modelItem => item.AgencyName)</a></h5>
                             <p class="card-text">
-                                <strong>Commitment: </strong>@Html.DisplayFor(modelItem => item.Commitment)<br />
-                                <strong>Time Preference: </strong>@Html.DisplayFor(modelItem => item.TimeSection)<br />
-                                <strong>Location: </strong>@Html.DisplayFor(modelItem => item.Workplace)<br />
+                                <strong>Commitment: </strong>@Html.DisplayFor(modelItem => item.Commitment)<br>
+                                <strong>Time Preference: </strong>@Html.DisplayFor(modelItem => item.TimeSection)<br>
+                                <strong>Location: </strong>@Html.DisplayFor(modelItem => item.Workplace)<br>
                             </p>
                            
                         </div>
