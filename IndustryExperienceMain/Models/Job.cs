@@ -14,5 +14,7 @@ public partial class Job
 
     public string Workplace { get; set; } = null!;
 
+    public string Link { get; set; } = null!;
+
     public virtual Agency Agency { get; set; } = null!;
 }

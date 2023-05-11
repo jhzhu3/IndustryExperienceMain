@@ -8,5 +8,7 @@ public partial class Agency
 
     public string Link { get; set; } = null!;
 
+    public string logo_link { get; set; } = null!;
+
     public virtual ICollection<Job> Jobs { get; } = new List<Job>();
 }
