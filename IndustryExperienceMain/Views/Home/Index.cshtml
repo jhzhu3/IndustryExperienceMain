@@ -4,7 +4,7 @@
 <div class="hero-banner">
     <div class="banner-image"></div>
     <div class="col-md-12 text-center">
-        <div class="slideshow" style="margin-top: 25%;">
+        <div class="slideshow" style="margin-top: 20%;">
             <div>
                 <h2>Develop Skills, Make an Impact</h2>
                 <p>Volunteer to Support Education and Reduce Poverty in Victoria</p>
@@ -16,6 +16,44 @@
             <div>
                 <h2>3rd Mission</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: 10%">
+        <div class="col-md-4">
+            <div class="card" style="background-color: #fae1dd">
+                <a asp-area="" asp-controller="Home" asp-action="Infographics" style="text-decoration:none;">
+                    <img class="card-img-top" src="./Images/learn.png" alt="Learn" style="width: 64px; height: 64px; margin-top: 5%">
+                    <div class="card-body">
+                        <h5 class="card-title">Learn</h5>
+                        <p class="card-text">Text about Learn Feature</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="background-color: #d8e2dc">
+                <a asp-area="" asp-controller="Home" asp-action="Test" style="text-decoration:none;">
+                    <img class="card-img-top" src="./Images/check.png" alt="Check" style="width: 64px; height: 64px; margin-top: 5%">
+                    <div class="card-body">
+                        <h5 class="card-title">Check</h5>
+                        <p class="card-text">Text about Check Feature</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="background-color: #ffe5d9">
+                <a asp-area="" asp-controller="Jobs" asp-action="PreferenceCheck" style="text-decoration:none;">
+                    <img class="card-img-top" src="./Images/search.png" alt="Search" style="width: 64px; height: 64px; margin-top: 5%">
+                    <div class="card-body">
+                        <h5 class="card-title">Search</h5>
+                        <p class="card-text">Text about Search Feature</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -62,7 +100,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 65%;
         opacity: 0.4;
     }
 
@@ -86,5 +124,17 @@
         z-index: 1;
     }
 
-    
+    .card {
+        text-align: center;
+        margin-top: 7%;
+    }
+
+    .card:hover {
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card-title, .card-text {
+        color: #343a40;
+    }
 </style>
