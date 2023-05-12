@@ -10,33 +10,28 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-transparent border-bottom box-shadow mb-3 fixed-top">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between flex-column">
-                    <ul class="navbar-brand me-auto">
-                        <li>
-                            <h2 style="color: #FC9D00;">Youth Against Poverty</h2>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav flex-grow-1 me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    
+                    <ul class="navbar-nav flex-grow-1 me-auto style=" align-items: center;"">
+                        <li class="navbar-brand">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" style="text-decoration:none;">
+                                <h4 class="m-0" style="color: #63b6bb;">Youth Against Poverty</h4>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Jobs" asp-action="PreferenceCheck">Volunteer Search</a>
+                            <a class="nav-link text-dark @if (ViewContext.RouteData.Values["action"].ToString() == "Infographics") { <text>nav-item-active</text>}" asp-area="" asp-controller="Home" asp-action="Infographics">Learn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Infographics">Infographics</a>
+                            <a class="nav-link text-dark @if (ViewContext.RouteData.Values["action"].ToString() == "Test") { <text>nav-item-active</text> }" asp-area="" asp-controller="Home" asp-action="Test">Check</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Test">Aptitude Quiz</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                            <a class="nav-link text-dark @if (ViewContext.RouteData.Values["action"].ToString() == "PreferenceCheck") {<text>nav-item-active</text>}" asp-area="" asp-controller="Jobs" asp-action="PreferenceCheck">Search</a>
                         </li>
                     </ul>
                 </div>
@@ -44,7 +39,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 mt-5">
             @RenderBody()
         </main>
     </div>
@@ -62,10 +57,23 @@
 </html>
 
 <style>
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(5px);
+    }
     .nav-item:hover {
-        background-color: dimgrey;
+        background-color: #77DD77;
+        border-radius: 10px;
     }
-    .navbar-brand {
-        list-style: none;
+
+    .nav-item-active {
+        background-color: rgba(119, 221, 119, 0.5);
+        border-radius: 10px;
     }
-</style>
+
+    .navbar-nav .nav-link {
+        color: black;
+    }
+
+  
+ </style>
