@@ -9,45 +9,45 @@
 }
 
 <div class="container-fluid">
-    <div class="card">
-        <h1>Congratulations!</h1>
-        <h2 id="prompt">You have finished the Aptitude Quiz.</h2>
-@*        <p>@point.ToString()</p>*@
-        @{
-            if (point > 6 && point < 11)
-            {
-                <b>You have some communication and collaboration skills, which leaves room for you to grow!</b>
+    <div class="row justify-content-center">
+        <div class="card">
+            <h1>Congratulations!</h1>
+            <h2 id="prompt">You have finished the Aptitude Quiz.</h2>
+            @*        <p>@point.ToString()</p>*@
+            @{
+                if (point > 6 && point < 11)
+                {
+                    <b>You have some communication and collaboration skills, which leaves room for you to grow!</b>
+                }
+                else if (point > 10 && point < 15)
+                {
+                    <b>You have solid problem-solving skills and are able to prioritize tasks effectively!</b>
+                }
+                else if (point > 14 && point < 19)
+                {
+                    <b>You are resilient and is able to handle stressful situations well, but could work on improving your communication skills.</b>
+                }
+                else if (point > 18 && point < 22)
+                {
+                    <b>You have a good balance of skills across all area, and are able to effectively manage your time and work with others.</b>
+                }
+                else
+                {
+                    <b>YOU DID NOT ANSWER ALL QUESTIONS!</b>
+                    <b>PLEASE TRY AGAIN.</b>
+                }
             }
-            else if (point > 10 && point < 15)
-            {
-                <b>You have solid problem-solving skills and are able to prioritize tasks effectively!</b>
-            }
-            else if (point > 14 && point < 19)
-            {
-                <b>You are resilient and is able to handle stressful situations well, but could work on improving your communication skills.</b>
-            }
-            else if (point > 18 && point < 22)
-            {
-                <b>You have a good balance of skills across all area, and are able to effectively manage your time and work with others.</b>
-            }
-            else
-            {
-                <b>YOU DID NOT ANSWER ALL QUESTIONS!</b>                <b>PLEASE TRY AGAIN.</b>            }
-        }
+        </div>
     </div>
+    
 </div>
 
 <style>
     .card {
         text-align: center;
-        width: 40%;
+        width: 50%;
         height: 600px;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
+        vertical-align: middle;
         border-radius: 10px;
         background-color: #CBEBC3;
     }
