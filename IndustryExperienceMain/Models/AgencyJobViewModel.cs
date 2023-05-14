@@ -13,5 +13,7 @@
         public string Workplace { get; set; } = null!;
 
         public string AgencyLink { get; set; } = null!;
+
+        public string AgencyLogo { get; set; } = null!;
     }
 }

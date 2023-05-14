@@ -4,7 +4,7 @@
     ViewData["Title"] = "PreferenceDisplay";
 }
 
-<h1 class="text-center">Volunteer Opportunities</h1>
+<h1 class="text-center" style="margin-top: 75px; margin-bottom: 50px;">Volunteer Opportunities</h1>
 
 @{
     var jobList = Model.ToList();
@@ -28,12 +28,12 @@
                 <div class="col mb-4">
                     <div class="card h-100">
                         <div class="card-body">
+                            <img src="@Html.DisplayFor(modelItem => item.AgencyLogo)" class="card-img-top" alt="Agency Logo" style="width: 100%; height: 150px;">
                             <h5 class="card-title text-center"><a href="@Html.DisplayFor(modelItem => item.AgencyLink)">@Html.DisplayFor(modelItem => item.AgencyName)</a></h5>
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="agency image">
                             <p class="card-text">
-                                <strong>Commitment: </strong>@Html.DisplayFor(modelItem => item.Commitment)<br />
-                                <strong>Time Preference: </strong>@Html.DisplayFor(modelItem => item.TimeSection)<br />
-                                <strong>Location: </strong>@Html.DisplayFor(modelItem => item.Workplace)<br />
+                                <strong>Commitment: </strong>@Html.DisplayFor(modelItem => item.Commitment)<br>
+                                <strong>Time Preference: </strong>@Html.DisplayFor(modelItem => item.TimeSection)<br>
+                                <strong>Location: </strong>@Html.DisplayFor(modelItem => item.Workplace)<br>
                             </p>
                            
                         </div>
@@ -43,3 +43,8 @@
         </div>
     }
 }
+<style>
+    .card {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+</style>

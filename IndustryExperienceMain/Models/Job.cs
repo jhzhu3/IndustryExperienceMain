@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace IndustryExperienceMain.Models;
+﻿namespace IndustryExperienceMain.Models;
 
 public partial class Job
 {
@@ -16,6 +13,8 @@ public partial class Job
     public string TimeSection { get; set; } = null!;
 
     public string Workplace { get; set; } = null!;
+
+    public string Link { get; set; } = null!;
 
     public virtual Agency Agency { get; set; } = null!;
 }

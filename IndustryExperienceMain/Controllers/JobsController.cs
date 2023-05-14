@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IndustryExperienceMain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using IndustryExperienceMain.Models;
 
 namespace IndustryExperienceMain.Controllers
 {
@@ -58,7 +54,7 @@ namespace IndustryExperienceMain.Controllers
             }
         }*/
 
-        public async Task<IActionResult> SearchLocation() 
+        public async Task<IActionResult> SearchLocation()
         {
             string prefix = HttpContext.Request.Query["term"].ToString();
             var jobs = _context.Jobs.Where(j => j.Workplace.Contains(prefix))
@@ -82,13 +78,14 @@ namespace IndustryExperienceMain.Controllers
             var viewModelList = (from t1 in dataAgencyTable
                                  join t2 in dataJobTable on t1.AgencyId equals t2.AgencyId
                                  select new AgencyJobViewModel
-                                 { 
-                                    AgencyName = t1.AgencyName,
-                                    TypeOfWork = t2.TypeOfWork,
-                                    Commitment = t2.Commitment,
-                                    TimeSection = t2.TimeSection,
-                                    Workplace = t2.Workplace,
-                                    AgencyLink = t1.Link
+                                 {
+                                     AgencyName = t1.AgencyName,
+                                     TypeOfWork = t2.TypeOfWork,
+                                     Commitment = t2.Commitment,
+                                     TimeSection = t2.TimeSection,
+                                     Workplace = t2.Workplace,
+                                     AgencyLink = t1.Link,
+                                     AgencyLogo = t1.logo_link
                                  }).ToList();
 
             var query = viewModelList.AsQueryable();
@@ -262,14 +259,14 @@ namespace IndustryExperienceMain.Controllers
             {
                 _context.Jobs.Remove(job);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool JobExists(decimal id)
         {
-          return (_context.Jobs?.Any(e => e.JobId == id)).GetValueOrDefault();
+            return (_context.Jobs?.Any(e => e.JobId == id)).GetValueOrDefault();
         }
     }
 }
