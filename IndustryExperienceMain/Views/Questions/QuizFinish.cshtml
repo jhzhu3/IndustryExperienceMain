@@ -1,0 +1,96 @@
+﻿@model Tuple<List<Question>, List<Answer>, int>
+@{
+    ViewData["Title"] = "Quiz Finish";
+}
+
+@{
+    int point = Model.Item3;
+    
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="card">
+            <h1>Congratulations!</h1>
+            <h2 id="prompt">You have finished the Aptitude Quiz.</h2>
+            @*        <p>@point.ToString()</p>*@
+            @{
+                if (point > 6 && point < 11)
+                {
+                    <b>You have some communication and collaboration skills, which leaves room for you to grow!</b>
+                }
+                else if (point > 10 && point < 15)
+                {
+                    <b>You have solid problem-solving skills and are able to prioritize tasks effectively!</b>
+                }
+                else if (point > 14 && point < 19)
+                {
+                    <b>You are resilient and is able to handle stressful situations well, but could work on improving your communication skills.</b>
+                }
+                else if (point > 18 && point < 22)
+                {
+                    <b>You have a good balance of skills across all area, and are able to effectively manage your time and work with others.</b>
+                }
+                else
+                {
+                    <b>YOU DID NOT ANSWER ALL QUESTIONS!</b>
+                    <b>PLEASE TRY AGAIN.</b>
+                }
+            }
+        </div>
+    </div>
+    
+</div>
+
+<style>
+    .card {
+        text-align: center;
+        width: 50%;
+        height: 600px;
+        vertical-align: middle;
+        border-radius: 10px;
+        background-color: #CBEBC3;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    h1 {
+        padding-top: 50px;
+        font-size: 70px;
+    }
+
+    #prompt {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        font-size: 40px;
+    }
+
+    b {
+        text-align: center;
+        font-size: 40px;
+        color:teal;
+    }
+
+    input {
+        border-radius: 10px;
+        padding: 10px 16px;
+        background-color: #93CFA4;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        font-family: Arial;
+    }
+
+        input:hover {
+            background-color: #F7F3CB;
+            color: lightslategrey;
+        }
+
+        input:active {
+            background-color: #FBCB9C;
+            box-shadow: 0 2px #666;
+            transform: translateY(4px);
+        }
+</style>

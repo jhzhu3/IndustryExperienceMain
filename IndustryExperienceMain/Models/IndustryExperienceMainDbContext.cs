@@ -1,25 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace IndustryExperienceMain.Models;
 
-public partial class IndustryExperienceSqldatabaseContext : DbContext
+public partial class IndustryExperienceMainDbContext : DbContext
 {
-    public IndustryExperienceSqldatabaseContext()
+    public IndustryExperienceMainDbContext()
     {
     }
 
-    public IndustryExperienceSqldatabaseContext(DbContextOptions<IndustryExperienceSqldatabaseContext> options)
+    public IndustryExperienceMainDbContext(DbContextOptions<IndustryExperienceMainDbContext> options)
         : base(options)
     {
     }
 
     public virtual DbSet<Agency> Agencies { get; set; }
 
+    public virtual DbSet<Answer> Answers { get; set; }
+
     public virtual DbSet<Job> Jobs { get; set; }
 
     public virtual DbSet<Question> Questions { get; set; }
 
-    public virtual DbSet<Answer> Answers { get; set; }
+    public virtual DbSet<Quiz> Quizzes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("name=azureConString");
@@ -45,17 +49,18 @@ public partial class IndustryExperienceSqldatabaseContext : DbContext
                 .HasColumnName("link");
         });
 
-/*        modelBuilder.Entity<Question>(entity =>
+        modelBuilder.Entity<Answer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("question_pk");
+            entity.HasKey(e => e.Id).HasName("PK__Answer__3214EC07BC86BA17");
 
-            entity.ToTable("Question");
+            entity.ToTable("Answer");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("numeric(5, 0)")
-                .HasColumnName("Id");
-            entity.Property(e => e.t)
-        });*/
+            entity.Property(e => e.Text).HasMaxLength(255);
+
+            entity.HasOne(d => d.Question).WithMany(p => p.Answers)
+                .HasForeignKey(d => d.QuestionId)
+                .HasConstraintName("FK__Answer__Question__74AE54BC");
+        });
 
         modelBuilder.Entity<Job>(entity =>
         {
@@ -90,6 +95,28 @@ public partial class IndustryExperienceSqldatabaseContext : DbContext
                 .HasForeignKey(d => d.AgencyId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("job_id_fk1");
+        });
+
+        modelBuilder.Entity<Question>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Question__3214EC075A2B3C4C");
+
+            entity.ToTable("Question");
+
+            entity.Property(e => e.Text).HasMaxLength(255);
+
+            entity.HasOne(d => d.Quiz).WithMany(p => p.Questions)
+                .HasForeignKey(d => d.QuizId)
+                .HasConstraintName("FK__Question__QuizId__71D1E811");
+        });
+
+        modelBuilder.Entity<Quiz>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Quiz__3214EC073C158D68");
+
+            entity.ToTable("Quiz");
+
+            entity.Property(e => e.Name).HasMaxLength(255);
         });
 
         OnModelCreatingPartial(modelBuilder);

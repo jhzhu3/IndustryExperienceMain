@@ -1,0 +1,87 @@
+﻿@model Tuple<List<Question>, List<Answer>, int>
+@{
+    ViewData["Title"] = "QuestionFive";
+}
+
+@{
+    int point = Model.Item3;
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="card">
+            <h2 style="font-size: 40px;"><b>Question 5</b></h2>
+            @using (Html.BeginForm("QuestionSix", "Questions", FormMethod.Post))
+            {
+                var QuestionList = Model.Item1.ToList();
+                var AnswerList = Model.Item2.ToList();
+                var question5 = QuestionList[4];
+                <h2 id="question">@question5.Text</h2>
+                <ul>
+                    @foreach (var answer in AnswerList)
+                    {
+                        if (answer.QuestionId.Equals(question5.Id))
+                        {
+                            <p>@Html.RadioButton("answer5", answer.Points + point) @answer.Text</p>
+                        }
+                    }
+                </ul>
+                <input type="submit" value="Next Question"></input>
+            }
+        </div>
+    </div>
+    
+</div>
+
+<style>
+    .card {
+        text-align: center;
+        width: 50%;
+        height: 600px;
+        vertical-align: middle;
+        border-radius: 10px;
+        background-color: #CBEBC3;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    h1 {
+        padding-top: 50px;
+        font-size: 70px;
+    }
+
+    #question {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        font-size: 40px;
+    }
+
+    p {
+        text-align: left;
+        margin-left: auto;
+        font-size: 20px;
+    }
+
+    input {
+        border-radius: 10px;
+        padding: 10px 16px;
+        background-color: #93CFA4;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        font-family: Arial;
+    }
+
+        input:hover {
+            background-color: #F7F3CB;
+            color: lightslategrey;
+        }
+
+        input:active {
+            background-color: #FBCB9C;
+            box-shadow: 0 2px #666;
+            transform: translateY(4px);
+        }
+</style>
