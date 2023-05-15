@@ -1,37 +1,76 @@
-﻿
+﻿@model IEnumerable<IndustryExperienceMain.Models.AgencyJobViewModel>
 @{
     ViewData["Title"] = "PreferenceCheck";
 }
+@{
+    var oppList = Model.ToList();
+    //var distinctList = oppList.Select(x => new { x.TypeOfWork, x.Workplace }).Distinct().ToList();
+    //var distinctLtyist = oppList.GroupBy(m => new { m.TypeOfWork, m.Workplace }).Select(group => group.First()).ToList();
+    var jobList = oppList.Select(x => x.TypeOfWork).Distinct().ToList();
+    var locationList = oppList.Select(y => y.Workplace).Distinct().ToList();
+}
 
-<div class="text-center">
-    <h1><i>We believe that everyone has the power to make an impact.</i></h1>
-    <hr style="height:5px;">
-    <h4 style="margin-top:50px;">Connect with the organisations that share your values for rewarding volunteer opportunities</h4>
-</div>
-
-<div id="search">
-    <form method="get" action="@Url.Action("PreferenceDisplay", "Jobs")" id="form">
-        <div class="text-center">
-            <label for="workplace">Location:</label>
-            <input type="text" id="locationName" name="workplace" placeholder="Enter suburb, town or city" size="25"/>
-            <label for="typeOfWork">Job Type:</label>
-            <input type="text" id="typeName" name="typeOfWork" placeholder="What are you interested in?" size="25" />
-            <button type="submit">Search</button>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 id="title">We believe that everyone has the power to make an impact!</h1>
         </div>
-    </form>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <img id="image" src="~/Images/Volunteering.jpg" />
+        </div>
+    </div>
+    <div class="row" style="padding-top: 5%">
+        <div class="col-12">
+            <div id="search">
+                <h2 style="font-size:30px; color: white">Search for Volunteering opportunities that suit your interests,</h2>
+                <h2 style="font-size:30px; color: white"> and find ones that are close by!</h2>
+                <br />
+                @using (Html.BeginForm("PreferenceDisplayTest", "Jobs", FormMethod.Post))
+                {
+                    <b style="color: white;">WHAT</b>
+                    @Html.DropDownList("typeOfWork", new SelectList(jobList), "--Select Interest--")
+                    <b style="color: white;">WHERE</b>
+                    @Html.DropDownList("workplace", new SelectList(locationList), "--Select Location--")
+                    <button type="submit">Search</button>
+                }
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
+    #title {
+        font-size: 40px;
+        color: #63b6bb;
+        text-align: center;
+    }
+
+    #image {
+        width: 100%;
+    }
+
     #search {
         display: block;
-        block-size: 50px;
-        background-color: mediumpurple;
+        block-size: 200px;
+        background-color: #63b6bb;
         text-align: center;
         border: 2px solid;
     }
     #form {
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+
+    button{
+        border-radius: 10px;
+        padding: 5px 20px;
+        background-color: #93CFA4;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        font-family: Arial;
     }
 </style>
 

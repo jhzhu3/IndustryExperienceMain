@@ -1,4 +1,7 @@
-﻿namespace IndustryExperienceMain.Models
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+
+namespace IndustryExperienceMain.Models
 {
     public class AgencyJobViewModel
     {
