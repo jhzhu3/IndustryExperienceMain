@@ -30,6 +30,7 @@
                             <img src="@Html.DisplayFor(modelItem => item.AgencyLogo)" class="card-img-top" alt="Agency Logo" style="width: 100%; height: 150px;">
                             <h5 class="card-title text-center"><a href="@Html.DisplayFor(modelItem => item.AgencyLink)">@Html.DisplayFor(modelItem => item.AgencyName)</a></h5>
                             <p class="card-text">
+                                <strong>Interest: </strong>@Html.DisplayFor(modelItem => item.TypeOfWork)<br>
                                 <strong>Commitment: </strong>@Html.DisplayFor(modelItem => item.Commitment)<br>
                                 <strong>Time Preference: </strong>@Html.DisplayFor(modelItem => item.TimeSection)<br>
                                 <strong>Location: </strong>@Html.DisplayFor(modelItem => item.Workplace)<br>
