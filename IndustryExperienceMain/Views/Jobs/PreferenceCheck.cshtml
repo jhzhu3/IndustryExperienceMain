@@ -7,7 +7,9 @@
     //var distinctList = oppList.Select(x => new { x.TypeOfWork, x.Workplace }).Distinct().ToList();
     //var distinctLtyist = oppList.GroupBy(m => new { m.TypeOfWork, m.Workplace }).Select(group => group.First()).ToList();
     var jobList = oppList.Select(x => x.TypeOfWork).Distinct().ToList();
+    jobList.Sort();
     var locationList = oppList.Select(y => y.Workplace).Distinct().ToList();
+    locationList.Sort();
 }
 
 <div class="container">
@@ -21,7 +23,7 @@
             <img id="image" src="~/Images/Volunteering.jpg" />
         </div>
     </div>
-    <div class="row" style="padding-top: 5%">
+    <div class="row" style="padding-top: 3%">
         <div class="col-12">
             <div id="search">
                 <h2 style="font-size:30px; color: white">Search for Volunteering opportunities that suit your interests,</h2>
