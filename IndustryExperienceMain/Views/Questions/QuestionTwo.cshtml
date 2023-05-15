@@ -1,6 +1,6 @@
 ﻿@model Tuple<List<Question>, List<Answer>, int>
 @{
-    ViewData["Title"] = "QuestionTwo";
+    ViewData["Title"] = "Question Two";
 }
 
 @{
@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="card">
-            <h2 style="font-size: 40px;"><b>Question 2</b></h2>
+            <h2 style="font-size: 40px;"><b>Question 2 of 7</b></h2>
             @using (Html.BeginForm("QuestionThree", "Questions", FormMethod.Post))
             {
                 var QuestionList = Model.Item1.ToList();
