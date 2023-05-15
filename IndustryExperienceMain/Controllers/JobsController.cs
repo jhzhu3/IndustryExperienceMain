@@ -36,7 +36,7 @@ namespace IndustryExperienceMain.Controllers
                                      Commitment = t2.Commitment,
                                      TimeSection = t2.TimeSection,
                                      Workplace = t2.Workplace,
-                                     AgencyLink = t1.Link,
+                                     AgencyLink = t2.Link,
                                      AgencyLogo = t1.logo_link
                                  }).ToList();
 
@@ -103,7 +103,7 @@ namespace IndustryExperienceMain.Controllers
                                      Commitment = t2.Commitment,
                                      TimeSection = t2.TimeSection,
                                      Workplace = t2.Workplace,
-                                     AgencyLink = t1.Link,
+                                     AgencyLink = t2.Link,
                                      AgencyLogo = t1.logo_link
                                  }).ToList();
 
@@ -149,7 +149,7 @@ namespace IndustryExperienceMain.Controllers
                                      Commitment = t2.Commitment,
                                      TimeSection = t2.TimeSection,
                                      Workplace = t2.Workplace,
-                                     AgencyLink = t1.Link,
+                                     AgencyLink = t2.Link,
                                      AgencyLogo = t1.logo_link
                                  }).ToList();
 

@@ -1,0 +1,52 @@
+﻿.card {
+    text-align: center;
+    width: 50%;
+    height: 600px;
+    vertical-align: middle;
+    border-radius: 10px;
+    background-color: #CBEBC3;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+h1 {
+    padding-top: 50px;
+    font-size: 70px;
+}
+
+h2 {
+    margin-top: 10px;
+}
+p {
+    text-align: left;
+    margin-left: auto;
+    font-size: 20px;
+}
+#question {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-size: 40px;
+}
+
+input {
+    border-radius: 10px;
+    padding: 10px 16px;
+    background-color: #93CFA4;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    font-family: Arial;
+}
+
+    input:hover {
+        background-color: #F7F3CB;
+        color: lightslategrey;
+    }
+
+    input:active {
+        background-color: #FBCB9C;
+        box-shadow: 0 2px #666;
+        transform: translateY(4px);
+    }
