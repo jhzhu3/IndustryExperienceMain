@@ -9,223 +9,93 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
 <script src="https://kit.fontawesome.com/3d0e52163a.js" crossorigin="anonymous"></script>
 
-<!-- refer to local js file -->
-<script src=@Url.Content("~/package/dist/echarts.js")></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button id="image1Btn" class="btn btn-primary">Image 1</button>
+            <button id="image2Btn" class="btn btn-primary">Image 2</button>
+        </div>
+    </div>
+</div>
 
-<h1 class="text-center"><b style="margin-top: 5%; color: #63b6bb">Educational Level VS Income Bracket</b></h1>
 
-<div class="container" id="main" style="width: 100%;height:550px;"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <img id="image1" src="../Images/Graph1.png" alt="Education V Income" style="display: none; width: 80%; height: auto; margin: 0 auto;">
+            <div id="image1Content" style="display: none;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="slideshow">
+                                <div>
+                                    <i class="fa-solid fa-school text-center" style="font-size: 70px;"></i>
+                                    <p style="font-size: 20px">Undeniable correlation between Education Attainment & Income Level for the general population</p>
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-graduation-cap text-center" style="font-size: 70px"></i>
+                                    <p style="font-size: 20px">Tertiary Education offers people with the highest possibility of a high-paying job</p>
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-sack-dollar text-center" style="font-size: 70px"></i>
+                                    <p style="font-size: 20px">Education in important in providing individuals with access to better jobs and higher socioeconomic status</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img id="image2" src="../Images/Graph2.png" alt="Metro V Rural" style="display: none; width: 80%; height: auto; margin: 0 auto;">
+            <div id="image2Content" style="display: none;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="slideshow">
+                                <div>
+                                    <i class="fa-solid fa-city text-center" style="font-size: 70px;"></i>
+                                    <p style="font-size: 20px">People who live closer to the city tend to go to University to receive tertiary education</p>
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-mountain-sun text-center" style="font-size: 70px"></i>
+                                    <p style="font-size: 20px">People who live in rural areas tend to be more attracted to trades and other employement opportunities</p>
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-scale-balanced text-center" style="font-size: 70px"></i>
+                                    <p style="font-size: 20px">One is not better than the other, University simply provides high probable outcome to become financially independent</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
-    // initialize the dom of echart
-    var myChart = echarts.init(document.getElementById('main'));
+    document.getElementById("image1Btn").addEventListener("click", function () {
+        document.getElementById("image1").style.display = "block";
+        document.getElementById("image1Content").style.display = "block";
+        document.getElementById("image2").style.display = "none";
+        document.getElementById("image2Content").style.display = "none";
 
-    option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        legend: {
-            right: 'auto',
-            data: ['Bachelor', 'Certificate I-III', 'Apprenticeship & Traineeship', 'Certificate IV or higher', 'Employed']
-        },
-        grid: {
-            left: '3%',
-            right: '20%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            name: 'NO. of Students',
-            type: 'value'
-        },
-        yAxis: {
-            name: 'Income Bracket',
-            type: 'category',
-            data: ['Highest', 'Upper-middle', 'Lower-middle', 'Lowest']
-        },
-        textStyle: {
-            fontSize: 14
-        },
-        series: [
-            {
-                name: 'Bachelor',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    show: true
-                },
-                data: [7382, 4259, 2998, 2836]
-            },
-            {
-                name: 'Certificate I-III',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    position: 'insideRight'
-                },
-                data: [217, 316, 304, 323]
-            },
-            {
-                name: 'Apprenticeship & Traineeship',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    position: 'insideRight'
-                },
-                data: [515, 621, 569, 550]
-            },
-            {
-                name: 'Certificate IV or higher',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    position: 'insideRight'
-                },
-                data: [1094, 1097, 947, 867]
-            },
-            {
-                name: 'Employed',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    position: 'insideRight'
-                },
-                data: [1605, 1266, 1290, 1217]
-            }
-        ]
-    };
-    myChart.setOption(option);
+    });
+
+    document.getElementById("image2Btn").addEventListener("click", function () {
+        document.getElementById("image1").style.display = "none";
+        document.getElementById("image1Content").style.display = "none";
+        document.getElementById("image2").style.display = "block";
+        document.getElementById("image2Content").style.display = "block";
+
+    });
 </script>
 
-<br>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="slideshow">
-                <div>
-                    <i class="fa-solid fa-school text-center" style="font-size: 70px;"></i>
-                    <p style="font-size: 20px">Undeniable correlation between Education Attainment & Income Level for the general population</p>
-                </div>
-
-                <div>
-                    <i class="fa-solid fa-graduation-cap text-center" style="font-size: 70px"></i>
-                    <p style="font-size: 20px">Tertiary Education offers people with the highest possibility of a high-paying job</p>
-                </div>
-
-                <div>
-                    <i class="fa-solid fa-sack-dollar text-center" style="font-size: 70px"></i>
-                    <p style="font-size: 20px">Education in important in providing individuals with access to better jobs and higher socioeconomic status</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
-
-<br>
-<br>
-<hr style="height:5px;">
-<br>
-<br>
-
-<div>
-    <h1 class="text-center"><b style="color: #63b6bb">Educational Levels in Metropolitan Area VS Rural Area</b></h1>
-    <div id="chart3" style="width: 100%; height: 700px;"></div>
-    <script type="text/javascript">
-        var myChartbar = echarts.init(document.getElementById('chart3'));
-        var option = {
-            legend: {
-                top: 40
-            },
-            textStyle: {
-                fontSize: 16,
-                color: '#fff',
-                fontStyle: 'normal',
-                fontWeight: 'normal',
-                textShadowColor: 'none'
-            },
-            tooltip: {},
-            dataset: {
-                source: [
-                    ['Destination', 'Metropolitan', 'Non-Metropolitan'],
-                    ['Bachelor Dagree', 14242, 3235],
-                    ['Certificate I-III', 814, 347],
-                    ['Certificate IV+', 3259, 746],
-                    ['Employed', 3018, 2351],
-                    ['Apprenticeship & Traineeship', 1298, 957]
-                ]
-            },
-            title: [
-                {
-                    text: 'Metropolitan',
-                    left: '40%',
-                    top: '17%',
-                    textAlign: 'center'
-                },
-                {
-                    text: 'Non-Metropolitan',
-                    left: '60%',
-                    top: '86%',
-                    textAlign: 'center'
-                }
-            ],
-            series: [
-                {
-                    type: 'pie',
-                    radius: '30%',
-                    center: ['40%', '40%'],
-                    label: {
-                        formatter: '{b}: ({d}%)',
-                        fontWeight: "bold"
-                    }
-                    // No encode specified, by default, it is '2012'.
-                },
-                {
-                    type: 'pie',
-                    radius: '20%',
-                    center: ['60%', '70%'],
-                    label: {
-                        formatter: '{b}: ({d}%)',
-                        fontWeight: "bold"
-                    },
-                    encode: {
-                        itemName: 'Destination',
-                        value: 'Non-Metropolitan'
-                    }
-                }
-            ]
-        };
-        myChartbar.setOption(option)
-    </script>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="slideshow">
-                <div>
-                    <i class="fa-solid fa-city text-center" style="font-size: 70px;"></i>
-                    <p style="font-size: 20px">People who live closer to the city tend to go to University to receive tertiary education</p>
-                </div>
-
-                <div>
-                    <i class="fa-solid fa-mountain-sun text-center" style="font-size: 70px"></i>
-                    <p style="font-size: 20px">People who live in rural areas tend to be more attracted to trades and other employement opportunities</p>
-                </div>
-
-                <div>
-                    <i class="fa-solid fa-scale-balanced text-center" style="font-size: 70px"></i>
-                    <p style="font-size: 20px">One is not better than the other, University simply provides high probable outcome to become financially independent</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
