@@ -10,6 +10,21 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <Content Remove="Views\Home\About.cshtml" />
+    <Content Remove="Views\Home\Privacy.cshtml" />
+    <Content Remove="Views\Home\Test.cshtml" />
+    <Content Remove="Views\Jobs\Create.cshtml" />
+    <Content Remove="Views\Jobs\Delete.cshtml" />
+    <Content Remove="Views\Jobs\Details.cshtml" />
+    <Content Remove="Views\Jobs\Edit.cshtml" />
+    <Content Remove="Views\Jobs\Index.cshtml" />
+    <Content Remove="Views\Questions\Create.cshtml" />
+    <Content Remove="Views\Questions\Delete.cshtml" />
+    <Content Remove="Views\Questions\Details.cshtml" />
+    <Content Remove="Views\Questions\Edit.cshtml" />
+    <Content Remove="Views\Questions\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="bootstrap" Version="5.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
