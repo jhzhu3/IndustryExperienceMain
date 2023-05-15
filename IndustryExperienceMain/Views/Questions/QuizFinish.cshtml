@@ -5,31 +5,51 @@
 
 @{
     int point = Model.Item3;
-    
+    bool showSearch = false;
+
 }
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="card">
-            <h1>Congratulations!</h1>
-            <h2 id="prompt">You have finished the Aptitude Quiz.</h2>
-            @*        <p>@point.ToString()</p>*@
+        <div class="card h-100">
             @{
                 if (point > 6 && point < 11)
                 {
-                    <b>You have some communication and collaboration skills, which leaves room for you to grow!</b>
+                    showSearch = true;
+                    <h1>Congratulations!</h1>
+                    <b>You have strong communication and collaboration skills, and are adaptable to new situations. <br /></b>
+                    <br />
+                    <h3>You are a perfect fit for: Education and Training or Language Training</h3>
+
                 }
                 else if (point > 10 && point < 15)
                 {
-                    <b>You have solid problem-solving skills and are able to prioritize tasks effectively!</b>
+                    showSearch = true;
+                    <h1>Congratulations!</h1>
+                    <b>You have solid problem-solving skills and are able to prioritize tasks effectively!<br /></b>
+                    <br />
+                    <h3>You are a perfect fit for: Classroom Assistant and Sports</h3>
+                    <br />
                 }
                 else if (point > 14 && point < 19)
                 {
-                    <b>You are resilient and is able to handle stressful situations well, but could work on improving your communication skills.</b>
+                    showSearch = true;
+                    <h1>Congratulations!</h1>
+                    <b>You are resilient and are able to handle stressful situations well, but could work on improving your communication skills.<br /></b>
+                    <br />
+                    <h3>You are a perfect fit for: Arts & Music, Craft & Photography or Sports</h3>
+                    <br />
+                    
                 }
                 else if (point > 18 && point < 22)
                 {
-                    <b>You have a good balance of skills across all area, and are able to effectively manage your time and work with others.</b>
+                    showSearch = true;
+                    <h1>Congratulations!</h1>
+                    <b>You have a good balance of skills across all area, and are able to effectively manage your time and work with others.<br /></b>
+                    <br />
+                    <h3>You are a perfect fit for: Classroom Assistant or Homework Tutoring</h3>
+                    <br />
+
                 }
                 else
                 {
@@ -39,8 +59,29 @@
             }
         </div>
     </div>
-    
 </div>
+<br />
+<br />
+
+@{
+    if(showSearch)
+    {
+        <div class="container">
+            <div class="row">
+                <h3 style="text-align: center">Now that you know your fit, are you ready to make a positive impact in your community? <br>Click the button below to find volunteering opportunities that match your skills and interests.</h3>
+                <div class="card h-100 mx-auto" style="background-color: #ffe5d9">
+                    <a asp-area="" asp-controller="Jobs" asp-action="PreferenceCheck" style="text-decoration:none;">
+                        <img class="card-img-top" src="../Images/search.png" alt="Search" style="width: 64px; height: 64px; margin-top: 5%">
+                        <div class="card-body">
+                            <h5 class="card-title">Search for Opportunities</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+}
+
 
 <style>
     .card {
@@ -52,9 +93,13 @@
         background-color: #CBEBC3;
     }
 
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-        }
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .card-title, .card-text {
+        color: #343a40;
+    }
 
     h1 {
         padding-top: 50px;
@@ -69,7 +114,7 @@
 
     b {
         text-align: center;
-        font-size: 40px;
+        font-size: 30px;
         color:teal;
     }
 
@@ -83,14 +128,14 @@
         font-family: Arial;
     }
 
-        input:hover {
-            background-color: #F7F3CB;
-            color: lightslategrey;
-        }
+    input:hover {
+        background-color: #F7F3CB;
+        color: lightslategrey;
+    }
 
-        input:active {
-            background-color: #FBCB9C;
-            box-shadow: 0 2px #666;
-            transform: translateY(4px);
-        }
+    input:active {
+        background-color: #FBCB9C;
+        box-shadow: 0 2px #666;
+        transform: translateY(4px);
+    }
 </style>
