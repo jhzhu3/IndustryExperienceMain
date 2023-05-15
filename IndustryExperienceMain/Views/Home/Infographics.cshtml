@@ -8,12 +8,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
 <script src="https://kit.fontawesome.com/3d0e52163a.js" crossorigin="anonymous"></script>
-
+<h4 style="text-align: center;">Select the chart that you would like to see</h4>
 <div class="container">
     <div class="row">
-        <div class="col-md-12 text-center">
-            <button id="image1Btn" class="btn btn-primary">Image 1</button>
-            <button id="image2Btn" class="btn btn-primary">Image 2</button>
+        <div class="col-md-6">
+            <div class="card h-100" style="background-color: #fae1dd">
+                    <div id="image1Btn" class="card-body">
+                        <h5 class="card-title">Education vs Income in Victorian Households</h5>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100" style="background-color: #fae1dd">
+                <div id="image2Btn" class="card-body">
+                    <h5 class="card-title">Education Levels in Victoria</h5>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -22,52 +32,41 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
-            <img id="image1" src="../Images/Graph1.png" alt="Education V Income" style="display: none; width: 80%; height: auto; margin: 0 auto;">
-            <div id="image1Content" style="display: none;">
+            <img id="image1" src="../Images/Graph1.png" alt="Education V Income" style="display: none; width: 70%; height: auto; margin: 0 auto;">
+            <div id="image1Content" style="display: none;"> <br />
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12 text-center">
-                            <div class="slideshow">
-                                <div>
-                                    <i class="fa-solid fa-school text-center" style="font-size: 70px;"></i>
-                                    <p style="font-size: 20px">Undeniable correlation between Education Attainment & Income Level for the general population</p>
-                                </div>
-
-                                <div>
-                                    <i class="fa-solid fa-graduation-cap text-center" style="font-size: 70px"></i>
-                                    <p style="font-size: 20px">Tertiary Education offers people with the highest possibility of a high-paying job</p>
-                                </div>
-
-                                <div>
-                                    <i class="fa-solid fa-sack-dollar text-center" style="font-size: 70px"></i>
-                                    <p style="font-size: 20px">Education in important in providing individuals with access to better jobs and higher socioeconomic status</p>
-                                </div>
-                            </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-school" style="font-size: 70px;"></i>
+                            <p style="font-size: 20px">Undeniable correlation between Education Attainment & Income Level for the general population</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-graduation-cap" style="font-size: 70px;"></i>
+                            <p style="font-size: 20px">Tertiary Education offers people with the highest possibility of a high-paying job</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-sack-dollar" style="font-size: 70px;"></i>
+                            <p style="font-size: 20px">Education is important in providing individuals with access to better jobs and higher socioeconomic status</p>
                         </div>
                     </div>
                 </div>
+
             </div>
-            <img id="image2" src="../Images/Graph2.png" alt="Metro V Rural" style="display: none; width: 80%; height: auto; margin: 0 auto;">
-            <div id="image2Content" style="display: none;">
+            <img id="image2" src="../Images/Graph2.png" alt="Metro V Rural" style="display: none; width: 70%; height: auto; margin: 0 auto;">
+            <div id="image2Content" style="display: none;"> <br />
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12 text-center">
-                            <div class="slideshow">
-                                <div>
-                                    <i class="fa-solid fa-city text-center" style="font-size: 70px;"></i>
-                                    <p style="font-size: 20px">People who live closer to the city tend to go to University to receive tertiary education</p>
-                                </div>
-
-                                <div>
-                                    <i class="fa-solid fa-mountain-sun text-center" style="font-size: 70px"></i>
-                                    <p style="font-size: 20px">People who live in rural areas tend to be more attracted to trades and other employement opportunities</p>
-                                </div>
-
-                                <div>
-                                    <i class="fa-solid fa-scale-balanced text-center" style="font-size: 70px"></i>
-                                    <p style="font-size: 20px">One is not better than the other, University simply provides high probable outcome to become financially independent</p>
-                                </div>
-                            </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-city" style="font-size: 70px;"></i>
+                            <p style="font-size: 20px">People who live closer to the city tend to go to University to receive tertiary education</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-mountain-sun" style="font-size: 70px;"></i>
+                            <p style="font-size: 20px">People who live in rural areas tend to be more attracted to trades and other employment opportunities</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-scale-balanced" style="font-size: 70px;"></i>
+                            <p style="font-size: 20px">One is not better than the other, University simply provides a high probable outcome to become financially independent</p>
                         </div>
                     </div>
                 </div>
@@ -82,7 +81,8 @@
         document.getElementById("image1Content").style.display = "block";
         document.getElementById("image2").style.display = "none";
         document.getElementById("image2Content").style.display = "none";
-
+        document.getElementById("image1Btn").classList.add("selected-card");
+        document.getElementById("image2Btn").classList.remove("selected-card");
     });
 
     document.getElementById("image2Btn").addEventListener("click", function () {
@@ -90,49 +90,27 @@
         document.getElementById("image1Content").style.display = "none";
         document.getElementById("image2").style.display = "block";
         document.getElementById("image2Content").style.display = "block";
-
+        document.getElementById("image2Btn").classList.add("selected-card");
+        document.getElementById("image1Btn").classList.remove("selected-card");
     });
 </script>
 
-
-
-
-
-
-@section scripts {
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.slideshow').slick({
-                autoplay: true,
-                autoplaySpeed: 5000,
-                arrows: true,
-                dots: true,
-                infinite: true,
-                speed: 500,
-                fade: true,
-            });
-        });
-    </script>
-}
-
 <style>
-    .slideshow {
-        margin-top: 20px;
-        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
-        padding: 15px;
-        border-radius: 10px;
+    .card {
+        text-align: center;
     }
 
-    .slick-arrow {
-        color: grey;
+    .card:hover {
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+        transition: box-shadow 0.3s ease-in-out;
     }
 
-    .slick-prev:before, .slick-next:before {
-        color: darkslategrey !important;
+    .card-title, .card-text {
+        color: #343a40;
+    }
+
+    .selected-card {
+        border: 2px solid black;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
     }
 </style>
