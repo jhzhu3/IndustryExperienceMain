@@ -1,6 +1,7 @@
 ﻿using IndustryExperienceMain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace IndustryExperienceMain.Controllers
@@ -23,7 +24,25 @@ namespace IndustryExperienceMain.Controllers
 
         public IActionResult PreferenceCheck()
         {
-            return View();
+            var dataAgencyTable = _context.Agencies.ToList();
+            var dataJobTable = _context.Jobs.ToList();
+
+            var viewModelList = (from t1 in dataAgencyTable
+                                 join t2 in dataJobTable on t1.AgencyId equals t2.AgencyId
+                                 select new AgencyJobViewModel
+                                 {
+                                     AgencyName = t1.AgencyName,
+                                     TypeOfWork = t2.TypeOfWork,
+                                     Commitment = t2.Commitment,
+                                     TimeSection = t2.TimeSection,
+                                     Workplace = t2.Workplace,
+                                     AgencyLink = t1.Link,
+                                     AgencyLogo = t1.logo_link
+                                 }).ToList();
+
+            var query = viewModelList.AsQueryable();
+            var result = query.ToList();
+            return View(result);
         }
 
         /*public IActionResult PreferenceDisplay(string workplace, string typeOfWork)
@@ -110,7 +129,53 @@ namespace IndustryExperienceMain.Controllers
             }
             else
             {
-                List<Job> empty = new List<Job>();
+                List<AgencyJobViewModel> empty = new List<AgencyJobViewModel>();
+                return View(empty);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult PreferenceDisplayTest(string workplace, string typeOfWork)
+        {
+            var dataAgencyTable = _context.Agencies.ToList();
+            var dataJobTable = _context.Jobs.ToList();
+
+            var viewModelList = (from t1 in dataAgencyTable
+                                 join t2 in dataJobTable on t1.AgencyId equals t2.AgencyId
+                                 select new AgencyJobViewModel
+                                 {
+                                     AgencyName = t1.AgencyName,
+                                     TypeOfWork = t2.TypeOfWork,
+                                     Commitment = t2.Commitment,
+                                     TimeSection = t2.TimeSection,
+                                     Workplace = t2.Workplace,
+                                     AgencyLink = t1.Link,
+                                     AgencyLogo = t1.logo_link
+                                 }).ToList();
+
+            var query = viewModelList.AsQueryable();
+
+            if (!string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.Workplace.Contains(workplace) && j.TypeOfWork.Contains(typeOfWork));
+                var results = query.ToList();
+                return View(results);
+            }
+            else if (!string.IsNullOrEmpty(workplace) && string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.Workplace.Contains(workplace));
+                var results = query.ToList();
+                return View(results);
+            }
+            else if (string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
+            {
+                query = query.Where(j => j.TypeOfWork.Contains(typeOfWork));
+                var results = query.ToList();
+                return View(results);
+            }
+            else
+            {
+                List<AgencyJobViewModel> empty = new List<AgencyJobViewModel>();
                 return View(empty);
             }
         }
