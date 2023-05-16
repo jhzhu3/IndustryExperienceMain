@@ -23,6 +23,7 @@
                     {
                         if (answer.QuestionId.Equals(question6.Id))
                         {
+                            <input id="answer6" name="answer6" type="radio" style="display:none" required />
                             <p>@Html.RadioButton("answer6", answer.Points + point) @answer.Text</p>
                         }
                     }
