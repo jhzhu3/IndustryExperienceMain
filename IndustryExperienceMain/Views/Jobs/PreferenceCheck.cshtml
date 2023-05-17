@@ -26,14 +26,14 @@
     <div class="row" style="padding-top: 3%">
         <div class="col-12">
             <div id="search">
-                <h2 style="font-size:30px; color: white">Search for Volunteering opportunities that suit your interests,</h2>
-                <h2 style="font-size:30px; color: white"> and find ones that are close by!</h2>
+                <h2 style="font-size:30px; color: dimgray">Search for Volunteering opportunities that suit your interests,</h2>
+                <h2 style="font-size:30px; color: dimgray"> and find ones that are close by!</h2>
                 <br />
                 @using (Html.BeginForm("PreferenceDisplayTest", "Jobs", FormMethod.Post))
                 {
-                    <b style="color: white;">WHAT</b>
+                    <b style="color: dimgray;">WHAT</b>
                     @Html.DropDownList("typeOfWork", new SelectList(jobList), "--Select Interest--")
-                    <b style="color: white;">WHERE</b>
+                    <b style="color: dimgray;">WHERE</b>
                     @Html.DropDownList("workplace", new SelectList(locationList), "--Select Location--")
                     <button type="submit">Search</button>
                 }
@@ -45,7 +45,7 @@
 <style>
     #title {
         font-size: 40px;
-        color: #63b6bb;
+        color: #FEBCC8;
         text-align: center;
     }
 
@@ -56,7 +56,7 @@
     #search {
         display: block;
         block-size: 200px;
-        background-color: #63b6bb;
+        background-color: #FFF9D7;
         text-align: center;
         border: 2px solid;
     }
