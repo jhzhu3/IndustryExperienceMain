@@ -3,46 +3,75 @@
 @{
     ViewData["Title"] = "Preference Display";
 }
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKPqWqIuwEwsbKsk6csoG-hW10K_DNn1o&libraries=places"></script>
 <h1 class="text-center" style="margin-top: 75px; margin-bottom: 50px;">Volunteer Opportunities</h1>
+<div id="map" style="height: 900px; width: 100%"></div>
 
-@{
-    var jobList = Model.ToList();
-    if (!jobList.Any())
+
+
+<script>
+    function initMap() {
+        var mapOptions = {
+            center: { lat: -37.8136, lng: 144.9631 },
+            zoom: 10
+        };
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    @foreach (var item in Model)
     {
-        <div class="align-content-center">
-            <h1 class="text-center">OOPS!</h1>
-            <p>
-                <center>Sorry no matches found!</center>
-                <center>The opportunity you are looking for is currently not in our database,</center>
-                <center>but this site will be updated periodically to include more items.</center>
-                <center>Stay tuned for more updates!</center>
-            </p>
-        </div>
+        <text>
+            var contentString = createContentString('@item.AgencyLogo', '@item.AgencyLink', '@item.AgencyName', '@item.TypeOfWork', '@item.Commitment', '@item.TimeSection', '@item.Workplace');
+
+            var marker = new google.maps.Marker({
+                position: { lat: @item.Latitude, lng: @item.Longitude },
+                map: map,
+                title: '@item.AgencyName'
+            });
+
+            (function (marker, contentString) {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    maxWidth: 300
+                });
+
+                // Attach click event listener to marker
+                marker.addListener('click', function () {
+                    window.open('@item.AgencyLink', '_blank');
+                });
+
+                // Attach mouseover event listener to marker
+                marker.addListener('mouseover', function () {
+                    infoWindow.open(map, marker);
+                });
+
+                // Attach mouseout event listener to marker
+                marker.addListener('mouseout', function () {
+                    infoWindow.close();
+                });
+            })(marker, contentString);
+        </text>
     }
-    else
-    {
-        <div class="row row-cols-1 row-cols-md-4 gap-3 justify-content-center">
-            @foreach (var item in Model)
-            {
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <img src="@Html.DisplayFor(modelItem => item.AgencyLogo)" class="card-img-top" alt="Agency Logo" style="width: 100%; height: 150px;">
-                            <h5 class="card-title text-center"><a href="@Html.DisplayFor(modelItem => item.AgencyLink)">@Html.DisplayFor(modelItem => item.AgencyName)</a></h5>
-                            <p class="card-text">
-                                <strong>Commitment: </strong>@Html.DisplayFor(modelItem => item.Commitment)<br>
-                                <strong>Time Preference: </strong>@Html.DisplayFor(modelItem => item.TimeSection)<br>
-                                <strong>Location: </strong>@Html.DisplayFor(modelItem => item.Workplace)<br>
-                            </p>
-                           
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
     }
-}
+   
+
+    function createContentString(agencyLogo, agencyLink, agencyName, typeOfWork, commitment, timeSection, workplace) {
+        var contentString = '<div class="card h-100">' +
+            '<div class="card-body">' +
+            '<img src="' + agencyLogo + '" class="card-img-top" alt="Agency Logo" style="width: 100%; height: 150px;">' +
+            '<p class="card-text">' +
+            '<strong>Interest: </strong>' + typeOfWork + '<br>' +
+            '<strong>Commitment: </strong>' + commitment + '<br>' +
+            '<strong>Time Preference: </strong>' + timeSection + '<br>' +
+            '<strong>Location: </strong>' + workplace + '<br>' +
+            '</p>' +
+            '</div>' +
+            '</div>';
+
+        return contentString;
+    }
+    google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+
 <style>
     .card {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
