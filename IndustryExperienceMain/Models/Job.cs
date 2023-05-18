@@ -15,6 +15,9 @@ public partial class Job
     public string Workplace { get; set; } = null!;
 
     public string Link { get; set; } = null!;
+    public decimal Latitude { get; set; }
+
+    public decimal Longitude { get; set; }
 
     public virtual Agency Agency { get; set; } = null!;
 }

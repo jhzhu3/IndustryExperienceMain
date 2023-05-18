@@ -37,41 +37,15 @@ namespace IndustryExperienceMain.Controllers
                                      TimeSection = t2.TimeSection,
                                      Workplace = t2.Workplace,
                                      AgencyLink = t1.Link,
-                                     AgencyLogo = t1.logo_link
+                                     AgencyLogo = t1.logo_link,
+                                     Latitude = t2.Latitude,
+                                     Longitude = t2.Longitude
                                  }).ToList();
 
             var query = viewModelList.AsQueryable();
             var result = query.ToList();
             return View(result);
         }
-
-        /*public IActionResult PreferenceDisplay(string workplace, string typeOfWork)
-        {
-            var query = _context.Jobs.AsQueryable();
-
-            if (!string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
-            {
-                query = query.Where(j => j.Workplace.Contains(workplace) && j.TypeOfWork.Contains(typeOfWork));
-                var results = query.ToList();
-                return View(results);
-            } else if(!string.IsNullOrEmpty(workplace) && string.IsNullOrEmpty(typeOfWork))
-            {
-                query = query.Where(j => j.Workplace.Contains(workplace));
-                var results = query.ToList();
-                return View(results);
-            }
-            else if (string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
-            {
-                query = query.Where(j => j.TypeOfWork.Contains(typeOfWork));
-                var results = query.ToList();
-                return View(results);
-            }
-            else
-            {
-                List<Job> empty = new List<Job>();
-                return View(empty);
-            }
-        }*/
 
         public async Task<IActionResult> SearchLocation()
         {
@@ -104,7 +78,9 @@ namespace IndustryExperienceMain.Controllers
                                      TimeSection = t2.TimeSection,
                                      Workplace = t2.Workplace,
                                      AgencyLink = t1.Link,
-                                     AgencyLogo = t1.logo_link
+                                     AgencyLogo = t1.logo_link,
+                                     Latitude = t2.Latitude,
+                                     Longitude = t2.Longitude
                                  }).ToList();
 
             var query = viewModelList.AsQueryable();
@@ -150,7 +126,9 @@ namespace IndustryExperienceMain.Controllers
                                      TimeSection = t2.TimeSection,
                                      Workplace = t2.Workplace,
                                      AgencyLink = t1.Link,
-                                     AgencyLogo = t1.logo_link
+                                     AgencyLogo = t1.logo_link,
+                                     Latitude = t2.Latitude,
+                                     Longitude = t2.Longitude
                                  }).ToList();
 
             var query = viewModelList.AsQueryable();
@@ -179,21 +157,6 @@ namespace IndustryExperienceMain.Controllers
                 return View(empty);
             }
         }
-
-        /*        public async Task<IActionResult> PreferenceDisplay(string jobLocationString, string jobTypeString) 
-                {
-                    var dbContext = _context.Jobs.Include(j => j.Agency);
-
-                    ViewData["FirstFilter"] = jobLocationString;
-                    ViewData["SecondFilter"] = jobTypeString;
-
-                    List<Job> jobList = dbContext.ToList();
-                    if (jobList.Any(j => j.Workplace.Contains(jobLocationString)) || jobList.Any(j => j.TypeOfWork.Contains(jobTypeString)))
-                    {
-                        List<Job> found = (List<Job>)jobList.Where(j => j.Workplace.Contains(jobLocationString));
-                        return View(found);
-                    }
-                }*/
 
         // GET: Jobs/Details/5
         public async Task<IActionResult> Details(decimal? id)

@@ -18,5 +18,8 @@ namespace IndustryExperienceMain.Models
         public string AgencyLink { get; set; } = null!;
 
         public string AgencyLogo { get; set; } = null!;
+
+        public decimal Latitude { get; set; } = 0;
+        public decimal Longitude { get; set; } = 0;
     }
 }

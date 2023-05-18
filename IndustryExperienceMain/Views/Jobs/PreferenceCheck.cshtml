@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<IndustryExperienceMain.Models.AgencyJobViewModel>
 @{
     ViewData["Title"] = "Preference Check";
+
 }
 @{
     var oppList = Model.ToList();
@@ -29,12 +30,12 @@
                 <h2 style="font-size:30px; color: dimgray">Search for Volunteering opportunities that suit your interests,</h2>
                 <h2 style="font-size:30px; color: dimgray"> and find ones that are close by!</h2>
                 <br />
-                @using (Html.BeginForm("PreferenceDisplayTest", "Jobs", FormMethod.Post))
+                @using (Html.BeginForm("PreferenceDisplay", "Jobs", FormMethod.Post))
                 {
-                    <b style="color: dimgray;">WHAT</b>
+                    //<b style="color: dimgray;">WHAT</b>
                     @Html.DropDownList("typeOfWork", new SelectList(jobList), "--Select Interest--")
-                    <b style="color: dimgray;">WHERE</b>
-                    @Html.DropDownList("workplace", new SelectList(locationList), "--Select Location--")
+                    @*<b style="color: dimgray;">WHERE</b>
+                    @Html.DropDownList("workplace", new SelectList(locationList), "--Select Location--")*@
                     <button type="submit">Search</button>
                 }
             </div>
