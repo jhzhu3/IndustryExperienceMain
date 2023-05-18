@@ -18,8 +18,6 @@ namespace IndustryExperienceMain.Controllers
         private readonly IndustryExperienceMainDbContext _context;
 
         private int points;
-
-        //private Tuple quizTuple;
         
 
         public QuestionsController(IndustryExperienceMainDbContext context)
@@ -34,6 +32,7 @@ namespace IndustryExperienceMain.Controllers
             return View(await industryExperienceMainDbContext.ToListAsync());
         }
 
+        //Method to dipslay data from backend to front end -- quiz
         public IActionResult QuestionIndex()
         {
             var questionsTable = _context.Questions.ToList();

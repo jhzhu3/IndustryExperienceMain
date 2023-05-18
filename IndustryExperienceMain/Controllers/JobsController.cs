@@ -22,6 +22,7 @@ namespace IndustryExperienceMain.Controllers
             return View(await industryExperienceSqldatabaseContext.ToListAsync());
         }
 
+        //Controller action to get backend data to display on PreferenceCheck view page -- for drowpdown select function
         public IActionResult PreferenceCheck()
         {
             var dataAgencyTable = _context.Agencies.ToList();
@@ -47,6 +48,7 @@ namespace IndustryExperienceMain.Controllers
             return View(result);
         }
 
+        //Method to return a list of locations based on user input
         public async Task<IActionResult> SearchLocation()
         {
             string prefix = HttpContext.Request.Query["term"].ToString();
@@ -55,6 +57,7 @@ namespace IndustryExperienceMain.Controllers
             return Ok(jobs);
         }
 
+        //Method to return a list of job types based on user input
         public async Task<IActionResult> SearchType()
         {
             string prefix = HttpContext.Request.Query["term"].ToString();
@@ -63,55 +66,8 @@ namespace IndustryExperienceMain.Controllers
             return Ok(jobs);
         }
 
+        //Method to display backend data to preference display view based on user selection
         public IActionResult PreferenceDisplay(string workplace, string typeOfWork)
-        {
-            var dataAgencyTable = _context.Agencies.ToList();
-            var dataJobTable = _context.Jobs.ToList();
-
-            var viewModelList = (from t1 in dataAgencyTable
-                                 join t2 in dataJobTable on t1.AgencyId equals t2.AgencyId
-                                 select new AgencyJobViewModel
-                                 {
-                                     AgencyName = t1.AgencyName,
-                                     TypeOfWork = t2.TypeOfWork,
-                                     Commitment = t2.Commitment,
-                                     TimeSection = t2.TimeSection,
-                                     Workplace = t2.Workplace,
-                                     AgencyLink = t1.Link,
-                                     AgencyLogo = t1.logo_link,
-                                     Latitude = t2.Latitude,
-                                     Longitude = t2.Longitude
-                                 }).ToList();
-
-            var query = viewModelList.AsQueryable();
-
-            if (!string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
-            {
-                query = query.Where(j => j.Workplace.Contains(workplace) && j.TypeOfWork.Contains(typeOfWork));
-                var results = query.ToList();
-                return View(results);
-            }
-            else if (!string.IsNullOrEmpty(workplace) && string.IsNullOrEmpty(typeOfWork))
-            {
-                query = query.Where(j => j.Workplace.Contains(workplace));
-                var results = query.ToList();
-                return View(results);
-            }
-            else if (string.IsNullOrEmpty(workplace) && !string.IsNullOrEmpty(typeOfWork))
-            {
-                query = query.Where(j => j.TypeOfWork.Contains(typeOfWork));
-                var results = query.ToList();
-                return View(results);
-            }
-            else
-            {
-                List<AgencyJobViewModel> empty = new List<AgencyJobViewModel>();
-                return View(empty);
-            }
-        }
-
-        [HttpPost]
-        public IActionResult PreferenceDisplayTest(string workplace, string typeOfWork)
         {
             var dataAgencyTable = _context.Agencies.ToList();
             var dataJobTable = _context.Jobs.ToList();
