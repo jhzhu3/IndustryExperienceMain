@@ -11,7 +11,9 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="card">
-            <h2 style="font-size: 40px;"><b>3 of 7</b></h2>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
             @using (Html.BeginForm("QuestionFour", "Questions", FormMethod.Post))
             {
                 var QuestionList = Model.Item1.ToList();
@@ -34,3 +36,32 @@
     </div>
     
 </div>
+
+<script>
+    var currentPage = 3; // Update this variable with the current page number
+
+    function updateProgressBar() {
+        var progress = (currentPage - 1) / 7 * 100; // Calculate the progress percentage
+        document.querySelector('.progress').style.width = progress + '%'; // Update the progress bar width
+    }
+
+    // Call the updateProgressBar function initially and whenever the page changes
+    updateProgressBar();
+
+</script>
+
+<style>
+    .progress-bar {
+        width: 100%;
+        height: 10px;
+        background-color: transparent;
+        margin-top: 1%;
+    }
+
+    .progress {
+        width: 0%;
+        height: 100%;
+        background-color: #63b6bb;
+        transition: width 0.3s ease-in-out;
+    }
+</style>

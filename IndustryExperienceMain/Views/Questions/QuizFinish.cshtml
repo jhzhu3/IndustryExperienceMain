@@ -13,30 +13,20 @@
     <div class="row justify-content-center">
         <div class="card h-100">
             @{
-                if (point > 6 && point < 11)
+                if (point > 6 && point < 15)
                 {
-                    showSearch = true;
+                    showSearch = false;
                     <h1>Thank you for taking the quiz!</h1>
-                    <b>Unfortunately we do not have any opportunities that fit your skillset<br /></b>
-                    <br />
-
-                }
-                else if (point > 10 && point < 15)
-                {
-                    showSearch = true;
-                    <h1>Congratulations!</h1>
-                    <b>You have some problem-solving skills and can prioritize tasks somewhat!<br /></b>
-                    <br />
-                    <h3>You are a good fit for: Classroom Assistant and Sports</h3>
+                    <b>Unfortunately we do not have any opportunities that fit your skillset at the moment.<br />Please try again in a few days.</b>
                     <br />
                 }
                 else if (point > 14 && point < 19)
                 {
                     showSearch = true;
                     <h1>Congratulations!</h1>
-                    <b>You are resilient and can handle stressful situations well, but could work on improving your communication skills.<br /></b>
+                    <b>You are resilient, can handle stressful situations well, and have good communication skills.<br /></b>
                     <br />
-                    <h3>You are a perfect fit for: Language Training, Arts & Music, Craft & Photography or Sports</h3>
+                    <h3>You are a perfect fit for: Driver Mentor, Craft & Photography</h3>
                     <br />
                     
                 }
@@ -44,9 +34,9 @@
                 {
                     showSearch = true;
                     <h1>Congratulations!</h1>
-                    <b>You have a good balance of skills across all area, and are able to effectively manage your time and work with others.<br /></b>
+                    <b>You have a good balance of skills, and are able to effectively manage your time and work with others.<br /></b>
                     <br />
-                    <h3>You are a perfect fit for: Education and Training, Classroom Assistant or Homework Tutoring</h3>
+                    <h3>You are a perfect fit for: Education and Training, Classroom Assistant, Language Training or Homework Tutoring</h3>
                     <br />
 
                 }
