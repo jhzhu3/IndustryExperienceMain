@@ -15,6 +15,7 @@
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
+            @*Create the form for user to answer. Gives one question and multiple options of which the user can select one.*@
             @using (Html.BeginForm("QuestionTwo", "Questions", FormMethod.Post))
             {
                 var QuestionList = Model.Item1.ToList();

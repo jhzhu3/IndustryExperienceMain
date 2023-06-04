@@ -4,15 +4,15 @@
 
 }
 @{
+    @*Retrieve model data, convert it into a list, remove duplicates and sort it*@
     var oppList = Model.ToList();
-    //var distinctList = oppList.Select(x => new { x.TypeOfWork, x.Workplace }).Distinct().ToList();
-    //var distinctLtyist = oppList.GroupBy(m => new { m.TypeOfWork, m.Workplace }).Select(group => group.First()).ToList();
     var jobList = oppList.Select(x => x.TypeOfWork).Distinct().ToList();
     jobList.Sort();
     var locationList = oppList.Select(y => y.Workplace).Distinct().ToList();
     locationList.Sort();
 }
 
+@*This section provides the user with a simple dropdown to select the "TypeOfWork" and search volunteering opportunities based on it.*@
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -32,10 +32,7 @@
                 <br />
                 @using (Html.BeginForm("PreferenceDisplay", "Jobs", FormMethod.Post))
                 {
-                    //<b style="color: dimgray;">WHAT</b>
                     @Html.DropDownList("typeOfWork", new SelectList(jobList), "--Select Interest--")
-                    @*<b style="color: dimgray;">WHERE</b>
-                    @Html.DropDownList("workplace", new SelectList(locationList), "--Select Location--")*@
                     <button type="submit">Search</button>
                 }
             </div>

@@ -13,6 +13,7 @@
     <div class="row justify-content-center">
         <div class="card h-100">
             @{
+                @*User's score is calculated and an opportunity is displayed to them based on it.*@
                 if (point > 6 && point < 15)
                 {
                     showSearch = false;
@@ -53,6 +54,7 @@
 <br />
 
 @{
+    @*If an opportunity is shown to them, a button to search for those opportunities is displayed which redirects them to the Search Page*@
     if(showSearch)
     {
         <div class="container">

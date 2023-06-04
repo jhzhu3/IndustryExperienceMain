@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@*Code for the Hero Banner - Main banner that displays the website banner*@
 <div class="hero-banner">
     <div class="banner-image"></div>
     <div class="col-md-12 text-center">
@@ -16,6 +17,7 @@
     </div>
 </div>
 
+@*This section is used for the 3 blocks under the banner, each indicating one functionality of the website and links to that function*@
 <div class="container">
     <div class="row" style="margin-top: 17%">
         <div class="col-md-4">
@@ -56,7 +58,7 @@
 </div>
 
 
-
+@*Code for the slideshow effect on the banner*@
 @section scripts {
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
